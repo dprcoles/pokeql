@@ -2,12 +2,12 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
-import { PokemonDetailData } from '@/types/PokemonData'
+import { PokemonCardData } from '@/types/PokemonData'
 import { GET_POKEMON_DETAIL } from '@/utils/queries'
-import { PokemonDetail } from '@/components/pokedex'
+import { PokemonCard } from '@/components/pokedex'
 
 interface PokemonProps {
-  data: PokemonDetailData
+  data: PokemonCardData
 }
 
 interface IParams extends ParsedUrlQuery {
@@ -17,7 +17,7 @@ interface IParams extends ParsedUrlQuery {
 const Pokemon: React.FC<PokemonProps> = ({ data }) => {
   return (
     <div>
-      <PokemonDetail data={data} />
+      <PokemonCard data={data} />
     </div>
   )
 }
@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   return {
     props: {
-      data: data.pokemon_v2_pokemon[0],
+      data: data.pokemon_v2_pokemon_by_pk,
     },
   }
 }

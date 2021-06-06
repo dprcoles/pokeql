@@ -1,20 +1,16 @@
 import React from 'react'
-import PokemonCard from './PokemonCard'
+import PokedexCard from './PokedexCard'
+import { PokedexCardData } from '@/types/PokemonData'
 
 interface PokemonListProps {
-  data: Array<PokemonListData>
-}
-
-type PokemonListData = {
-  id: number
-  name: string
+  data: Array<PokedexCardData>
 }
 
 const PokemonList: React.FC<PokemonListProps> = ({ data }) => (
   <div className="grid grid-flow-row lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1">
     {data.map(pokemon => (
       <div key={pokemon.id}>
-        <PokemonCard data={pokemon} />
+        <PokedexCard data={pokemon} />
       </div>
     ))}
   </div>

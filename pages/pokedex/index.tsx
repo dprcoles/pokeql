@@ -2,19 +2,19 @@ import React from 'react'
 import { GetStaticProps } from 'next'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import Wrapper from '@/components/Wrapper'
-import { PokemonList } from '@/components/pokedex'
-import { PokemonListData } from '@/types/PokemonData'
+import { PokedexList } from '@/components/pokedex'
+import { PokedexCardData } from '@/types/PokemonData'
 import { GET_POKEMON_LIST } from 'utils/queries'
 
 interface PokedexProps {
-  data: Array<PokemonListData>
+  data: Array<PokedexCardData>
 }
 
 const Pokedex: React.FC<PokedexProps> = ({ data }) => {
   return (
     <Wrapper>
       <div className="p-16">
-        <PokemonList data={data} />
+        <PokedexList data={data} />
       </div>
     </Wrapper>
   )

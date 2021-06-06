@@ -21,10 +21,27 @@ export const GET_POKEMON_LIST = gql`
 `
 
 export const GET_POKEMON_DETAIL = gql`
-  query GetPokemonDetail($id: Int) {
-    pokemon_v2_pokemon(where: { id: { _eq: $id } }) {
+  query GetPokemonDetail($id: Int!) {
+    pokemon_v2_pokemon_by_pk(id: $id) {
       id
       name
+      height
+      weight
+      pokemon_v2_pokemonabilities {
+        pokemon_v2_ability {
+          id
+          name
+          pokemon_v2_abilityeffecttexts(where: { language_id: { _eq: 9 } }) {
+            short_effect
+          }
+        }
+      }
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type {
+          id
+          name
+        }
+      }
     }
   }
 `
