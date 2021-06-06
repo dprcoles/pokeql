@@ -1,15 +1,13 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import { ApolloClient, gql, InMemoryCache } from '@apollo/client'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { PokemonDetailData } from '@/types/PokemonData'
+import { GET_POKEMON_DETAIL } from '@/utils/queries'
+import { PokemonDetail } from '@/components/pokedex'
 
 interface PokemonProps {
-  data: PokemonData
-}
-
-type PokemonData = {
-  id: number
-  name: string
+  data: PokemonDetailData
 }
 
 interface IParams extends ParsedUrlQuery {
@@ -17,10 +15,9 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Pokemon: React.FC<PokemonProps> = ({ data }) => {
-  console.log(data)
   return (
     <div>
-      <p>This is the page for {data.name}</p>
+      <PokemonDetail data={data} />
     </div>
   )
 }
@@ -35,14 +32,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
   })
 
   const { data } = await client.query({
-    query: gql`
-      query GetPokemonById($id: Int) {
-        pokemon_v2_pokemon(where: { id: { _eq: $id } }) {
-          id
-          name
-        }
-      }
-    `,
+    query: GET_POKEMON_DETAIL,
     variables: { id: parsedSlug },
   })
 

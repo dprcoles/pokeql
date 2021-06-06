@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from '@/utils/helpers'
 
 interface PokemonCardProps {
   data: PokemonData
@@ -11,9 +12,9 @@ type PokemonData = {
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ data }) => {
-  const pokemonId = String(data.id).padStart(3, '0')
-  const pokemonName = data.name
-  const pokemonImage = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemonId}.png`
+  const pokemonId = getPaddedPokemonId(data.id)
+  const pokemonName = resolvePokemonName(data.name)
+  const pokemonImage = getPokemonImage(data.id)
 
   return (
     <Link href="/pokedex/[slug]" as={`/pokedex/${data.id}`}>
@@ -21,7 +22,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data }) => {
         <div className="p-4 shadow-sm hover:bg-gray-50">
           <img className="mx-auto" src={pokemonImage} alt={pokemonName} />
           <p className="font-semibold text-lg">#{pokemonId}</p>
-          <p className="font-bold text-2xl capitalize">{pokemonName}</p>
+          <p className="font-extrabold text-2xl capitalize">{pokemonName}</p>
         </div>
       </a>
     </Link>

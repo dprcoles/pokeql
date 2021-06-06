@@ -1,1 +1,1 @@
-# Pokédex
+# PokéQL

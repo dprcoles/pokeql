@@ -6,14 +6,14 @@ interface WrapperProps {
 
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {
   const meta = {
-    title: 'Pokedex',
-    description: `Pokedex for all Pokemon and Pokemon games, powered by PokeApi`,
+    title: 'PokeQL',
+    description: `Pokedex for all Pokemon and Pokemon games, powered by PokeAPI's GraphQL API`,
     type: 'website',
-    siteName: 'Pokedex',
+    siteName: 'PokeQL',
     twitterHandle: '@_danielcoles',
     url: 'https://pokedex.page',
     image: 'https://pokedex.page/logo.png',
-    imageAlt: 'Logo for pokedex',
+    imageAlt: 'Logo for PokeQL',
   }
 
   return (
