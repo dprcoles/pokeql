@@ -12,7 +12,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
     siteName: 'Pokedex',
     twitterHandle: '@_danielcoles',
     url: 'https://pokedex.page',
-    image: 'https://pokedex.page/meta.png',
+    image: 'https://pokedex.page/logo.png',
     imageAlt: 'Logo for pokedex',
   }
 

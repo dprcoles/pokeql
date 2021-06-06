@@ -1,28 +1,24 @@
+import React from 'react'
 import { GetStaticProps } from 'next'
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client'
-import Wrapper from '../components/Wrapper'
+import Wrapper from '@/components/Wrapper'
+import PokemonList from '@/components/PokemonList'
 
 interface HomeProps {
-  data: Array<PokemonType>
+  data: Array<PokemonListData>
 }
 
-type PokemonType = {
+type PokemonListData = {
   id: number
   name: string
 }
 
-export default function Home({ data }: HomeProps) {
+const Home: React.FC<HomeProps> = ({ data }) => {
   return (
     <Wrapper>
-      {data.map((pokemon: PokemonType) => {
-        return (
-          <div key={pokemon.id}>
-            <h3>
-              #{pokemon.id} - {pokemon.name}
-            </h3>
-          </div>
-        )
-      })}
+      <div className="p-16">
+        <PokemonList data={data} />
+      </div>
     </Wrapper>
   )
 }
@@ -35,10 +31,21 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const { data } = await client.query({
     query: gql`
-      query GetPokemon {
-        pokemon_v2_pokemon(order_by: { id: asc }) {
+      query GetPokemon($offset: Int = 0) {
+        pokemon_v2_pokemon(
+          order_by: { id: asc }
+          where: { id: { _lte: 898 } }
+          limit: 20
+          offset: $offset
+        ) {
           id
           name
+          pokemon_v2_pokemontypes {
+            pokemon_v2_type {
+              id
+              name
+            }
+          }
         }
       }
     `,
@@ -50,3 +57,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   }
 }
+
+export default Home
