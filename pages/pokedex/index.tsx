@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      data: data.pokemon_v2_pokemon,
+      data: data.pokemon,
     },
   }
 }

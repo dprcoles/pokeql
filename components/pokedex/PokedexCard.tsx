@@ -8,12 +8,13 @@ interface PokedexCardProps {
 }
 
 const PokedexCard: React.FC<PokedexCardProps> = ({ data }) => {
-  const pokemonId = getPaddedPokemonId(data.id)
-  const pokemonName = resolvePokemonName(data.name)
-  const pokemonImage = getPokemonImage(data.id)
+  const { id, name } = data
+  const pokemonId = getPaddedPokemonId(id)
+  const pokemonName = resolvePokemonName(name)
+  const pokemonImage = getPokemonImage(id)
 
   return (
-    <Link href="/pokedex/[slug]" as={`/pokedex/${data.id}`}>
+    <Link href="/pokedex/[slug]" as={`/pokedex/${id}`}>
       <a>
         <div className="p-4 shadow-sm hover:bg-gray-50">
           <img className="mx-auto" src={pokemonImage} alt={pokemonName} />

@@ -8,29 +8,36 @@ export type PokemonCardData = {
   name: string
   height: number
   weight: number
-  pokemon_v2_pokemonabilities: Array<PokemonAbilitiesData>
-  pokemon_v2_pokemontypes: Array<PokemonTypesData>
+  abilities: Array<PokemonAbilitiesData>
+  types: Array<PokemonTypesData>
+  stats: Array<PokemonStatData>
 }
 
 export type PokemonAbilitiesData = {
-  pokemon_v2_ability: PokemonAbilityData
+  ability: PokemonAbilityData
 }
 
 export type PokemonAbilityData = {
   id: number
   name: string
-  pokemon_v2_abilityeffecttexts: Array<PokemonAbilityTextData>
+  effect: Array<PokemonAbilityTextData>
 }
 
 export type PokemonAbilityTextData = {
-  short_effect: string
+  description: string
 }
 
 export type PokemonTypesData = {
-  pokemon_v2_type: PokemonTypeData
+  type: PokemonTypeData
 }
 
 export type PokemonTypeData = {
   id: number
   name: string
+}
+
+export type PokemonStatData = {
+  stat_id: number
+  base_stat: number
+  effort: number
 }

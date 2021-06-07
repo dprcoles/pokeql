@@ -33,7 +33,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
         <meta name="twitter:image" content={meta.image} />
         <meta name="twitter:image:alt" content={meta.imageAlt} />
       </Head>
-      <div className="[ Wrapper ]">
+      <div className="[ WRAPPER ]">
         <main>{children}</main>
       </div>
     </div>

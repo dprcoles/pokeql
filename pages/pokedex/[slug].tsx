@@ -4,7 +4,8 @@ import { ParsedUrlQuery } from 'querystring'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { PokemonCardData } from '@/types/PokemonData'
 import { GET_POKEMON_DETAIL } from '@/utils/queries'
-import { PokemonCard } from '@/components/pokedex'
+import { PokemonCard } from '@/components/pokedex/pokemon'
+import Wrapper from '@/components/Wrapper'
 
 interface PokemonProps {
   data: PokemonCardData
@@ -16,9 +17,9 @@ interface IParams extends ParsedUrlQuery {
 
 const Pokemon: React.FC<PokemonProps> = ({ data }) => {
   return (
-    <div>
+    <Wrapper>
       <PokemonCard data={data} />
-    </div>
+    </Wrapper>
   )
 }
 
@@ -38,7 +39,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   return {
     props: {
-      data: data.pokemon_v2_pokemon_by_pk,
+      data: data.pokemon,
     },
   }
 }

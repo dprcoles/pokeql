@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import './components';
+
+:root {
+  --TYPE__NORMAL_BACKGROUND: theme('colors.normal-type-bg');
+  --TYPE__NORMAL_BORDER: theme('colors.normal-type-border');
+
+  --TYPE__FIGHTING_BACKGROUND: theme('colors.fighting-type-bg');
+  --TYPE__FIGHTING_BORDER: theme('colors.fighting-type-border');
+
+  --TYPE__FLYING_BACKGROUND: theme('colors.flying-type-bg');
+  --TYPE__FLYING_BORDER: theme('colors.flying-type-border');
+
+  --TYPE__POISON_BACKGROUND: theme('colors.poison-type-bg');
+  --TYPE__POISON_BORDER: theme('colors.poison-type-border');
+
+  --TYPE__GROUND_BACKGROUND: theme('colors.ground-type-bg');
+  --TYPE__GROUND_BORDER: theme('colors.ground-type-border');
+
+  --TYPE__ROCK_BACKGROUND: theme('colors.rock-type-bg');
+  --TYPE__ROCK_BORDER: theme('colors.rock-type-border');
+
+  --TYPE__BUG_BACKGROUND: theme('colors.bug-type-bg');
+  --TYPE__BUG_BORDER: theme('colors.bug-type-border');
+
+  --TYPE__GHOST_BACKGROUND: theme('colors.ghost-type-bg');
+  --TYPE__GHOST_BORDER: theme('colors.ghost-type-border');
+
+  --TYPE__STEEL_BACKGROUND: theme('colors.steel-type-bg');
+  --TYPE__STEEL_BORDER: theme('colors.steel-type-border');
+
+  --TYPE__FIRE_BACKGROUND: theme('colors.fire-type-bg');
+  --TYPE__FIRE_BORDER: theme('colors.fire-type-border');
+
+  --TYPE__WATER_BACKGROUND: theme('colors.water-type-bg');
+  --TYPE__WATER_BORDER: theme('colors.water-type-border');
+
+  --TYPE__GRASS_BACKGROUND: theme('colors.grass-type-bg');
+  --TYPE__GRASS_BORDER: theme('colors.grass-type-border');
+
+  --TYPE__ELECTRIC_BACKGROUND: theme('colors.electric-type-bg');
+  --TYPE__ELECTRIC_BORDER: theme('colors.electric-type-border');
+
+  --TYPE__PSYCHIC_BACKGROUND: theme('colors.psychic-type-bg');
+  --TYPE__PSYCHIC_BORDER: theme('colors.psychic-type-border');
+
+  --TYPE__ICE_BACKGROUND: theme('colors.ice-type-bg');
+  --TYPE__ICE_BORDER: theme('colors.ice-type-border');
+
+  --TYPE__DRAGON_BACKGROUND: theme('colors.dragon-type-bg');
+  --TYPE__DRAGON_BORDER: theme('colors.dragon-type-border');
+
+  --TYPE__DARK_BACKGROUND: theme('colors.dark-type-bg');
+  --TYPE__DARK_BORDER: theme('colors.dark-type-border');
+
+  --TYPE__FAIRY_BACKGROUND: theme('colors.fairy-type-bg');
+  --TYPE__FAIRY_BORDER: theme('colors.fairy-type-border');
+}
