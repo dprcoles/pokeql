@@ -34,8 +34,6 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data }) => {
                 className="mx-auto max-h-full max-w-full h-auto w-auto"
                 src={pokemonImage}
                 alt={pokemonName}
-                width="430"
-                height="430"
               />
             </div>
             <div className="p-4">
