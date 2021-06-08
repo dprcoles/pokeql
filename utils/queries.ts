@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client'
 
 export const GET_POKEMON_LIST = gql`
-  query GetPokemonList($offset: Int = 0) {
+  query GetPokemonList($offset: Int = 0, $maxPokemonId: Int!) {
     pokemon: pokemon_v2_pokemon(
       order_by: { id: asc }
-      where: { id: { _lte: 898 } }
+      where: { id: { _lte: $maxPokemonId } }
       limit: 20
       offset: $offset
     ) {
@@ -15,7 +15,7 @@ export const GET_POKEMON_LIST = gql`
 `
 
 export const GET_POKEMON_DETAIL = gql`
-  query GetPokemonDetail($id: Int!) {
+  query GetPokemonDetail($id: Int!, $languageId: Int!) {
     pokemon: pokemon_v2_pokemon_by_pk(id: $id) {
       id
       name
@@ -25,7 +25,7 @@ export const GET_POKEMON_DETAIL = gql`
         ability: pokemon_v2_ability {
           id
           name
-          effect: pokemon_v2_abilityeffecttexts(where: { language_id: { _eq: 9 } }) {
+          effect: pokemon_v2_abilityeffecttexts(where: { language_id: { _eq: $languageId } }) {
             description: short_effect
           }
         }

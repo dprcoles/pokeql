@@ -6,6 +6,7 @@ import { PokemonCardData } from '@/types/PokemonData'
 import { GET_POKEMON_DETAIL } from '@/utils/queries'
 import { PokemonCard } from '@/components/pokedex/pokemon'
 import Wrapper from '@/components/Wrapper'
+import { API_LANGUAGE_ID } from '@/utils/constants'
 
 interface PokemonProps {
   data: PokemonCardData
@@ -34,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   const { data } = await client.query({
     query: GET_POKEMON_DETAIL,
-    variables: { id: parsedSlug },
+    variables: { id: parsedSlug, languageId: API_LANGUAGE_ID },
   })
 
   return {

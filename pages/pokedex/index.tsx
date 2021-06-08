@@ -5,6 +5,7 @@ import Wrapper from '@/components/Wrapper'
 import { PokedexList } from '@/components/pokedex'
 import { PokedexCardData } from '@/types/PokemonData'
 import { GET_POKEMON_LIST } from 'utils/queries'
+import { MAX_POKEMON_ID } from '@/utils/constants'
 
 interface PokedexProps {
   data: Array<PokedexCardData>
@@ -28,6 +29,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const { data } = await client.query({
     query: GET_POKEMON_LIST,
+    variables: { maxPokemonId: MAX_POKEMON_ID },
   })
 
   return {
