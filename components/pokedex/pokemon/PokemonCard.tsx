@@ -1,16 +1,18 @@
 import React from 'react'
-import { PokemonCardData } from '@/types/PokemonData'
+import { PokemonCardData, PokemonNavigationData } from '@/types/PokemonData'
 import { getPaddedPokemonId, getFullSizePokemonImage, resolvePokemonName } from '@/utils/helpers'
 import PokemonType from './PokemonType'
-import Link from 'next/link'
 import PokemonDetail from './PokemonDetail'
 import PokemonStats from './PokemonStats'
+import PokemonNavigation from './PokemonNavigation'
 
 interface PokemonCardProps {
   data: PokemonCardData
+  next: PokemonNavigationData
+  prev: PokemonNavigationData
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ data }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ data, next, prev }) => {
   const { id, name, abilities, types, stats } = data
 
   const primaryType = types[0].type.name.toUpperCase()
@@ -22,11 +24,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data }) => {
   return (
     <div className="[ POKEMON__CARD ]">
       <div className="container mx-auto py-8">
-        <Link href="/pokedex">
-          <a>
-            <button className="hover:underline font-semibold text-lg">{'<'} Back to Pokedex</button>
-          </a>
-        </Link>
+        <PokemonNavigation next={next} prev={prev} />
         <div className={`[ POKEMON__${pokemonName.toUpperCase()} ]`}>
           <div className="grid grid-flow-row sm:grid-cols-1 md:grid-cols-2">
             <div className="p-4">

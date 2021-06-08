@@ -15,7 +15,7 @@ export const GET_POKEMON_LIST = gql`
 `
 
 export const GET_POKEMON_DETAIL = gql`
-  query GetPokemonDetail($id: Int!, $languageId: Int!) {
+  query GetPokemonDetail($id: Int!, $nextId: Int!, $prevId: Int!, $languageId: Int!) {
     pokemon: pokemon_v2_pokemon_by_pk(id: $id) {
       id
       name
@@ -41,6 +41,14 @@ export const GET_POKEMON_DETAIL = gql`
         base_stat
         effort
       }
+    }
+    next: pokemon_v2_pokemon_by_pk(id: $nextId) {
+      id
+      name
+    }
+    prev: pokemon_v2_pokemon_by_pk(id: $prevId) {
+      id
+      name
     }
   }
 `

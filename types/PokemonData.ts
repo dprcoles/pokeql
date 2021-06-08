@@ -41,3 +41,14 @@ export type PokemonStatData = {
   base_stat: number
   effort: number
 }
+
+export type PokemonPageData = {
+  pokemon: PokemonCardData
+  next: PokemonNavigationData
+  prev: PokemonNavigationData
+}
+
+export type PokemonNavigationData = {
+  id: number
+  name: string
+}

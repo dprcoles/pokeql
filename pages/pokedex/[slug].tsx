@@ -2,14 +2,14 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
-import { PokemonCardData } from '@/types/PokemonData'
+import { PokemonPageData } from '@/types/PokemonData'
 import { GET_POKEMON_DETAIL } from '@/utils/queries'
 import { PokemonCard } from '@/components/pokedex/pokemon'
 import Wrapper from '@/components/Wrapper'
-import { API_LANGUAGE_ID } from '@/utils/constants'
+import { API_LANGUAGE_ID, MAX_POKEMON_ID, MIN_POKEMON_ID } from '@/utils/constants'
 
 interface PokemonProps {
-  data: PokemonCardData
+  data: PokemonPageData
 }
 
 interface IParams extends ParsedUrlQuery {
@@ -17,9 +17,10 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Pokemon: React.FC<PokemonProps> = ({ data }) => {
+  const { pokemon, prev, next } = data
   return (
     <Wrapper>
-      <PokemonCard data={data} />
+      <PokemonCard data={pokemon} prev={prev} next={next} />
     </Wrapper>
   )
 }
@@ -28,6 +29,9 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const { slug } = context.params as IParams
   const parsedSlug = parseInt(slug)
 
+  const nextPokemonId = parsedSlug == MAX_POKEMON_ID ? MIN_POKEMON_ID : parsedSlug + 1
+  const prevPokemonId = parsedSlug == MIN_POKEMON_ID ? MAX_POKEMON_ID : parsedSlug - 1
+
   const client = new ApolloClient({
     uri: 'https://beta.pokeapi.co/graphql/v1beta',
     cache: new InMemoryCache(),
@@ -35,12 +39,17 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   const { data } = await client.query({
     query: GET_POKEMON_DETAIL,
-    variables: { id: parsedSlug, languageId: API_LANGUAGE_ID },
+    variables: {
+      id: parsedSlug,
+      languageId: API_LANGUAGE_ID,
+      nextId: nextPokemonId,
+      prevId: prevPokemonId,
+    },
   })
 
   return {
     props: {
-      data: data.pokemon,
+      data: data,
     },
   }
 }
