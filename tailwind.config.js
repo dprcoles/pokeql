@@ -51,6 +51,7 @@ module.exports = {
         'sp_atk-stat-bg': '#9DB7F5',
         'sp_def-stat-bg': '#A7DB8D',
         'speed-stat-bg': '#FA92B2',
+        'page-alt-color': '#DB2777',
       },
     },
   },

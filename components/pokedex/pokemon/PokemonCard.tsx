@@ -23,7 +23,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data, next, prev }) => {
 
   return (
     <div className="[ POKEMON__CARD ]">
-      <div className="container mx-auto py-8">
+      <div className="container mx-auto pb-8">
         <PokemonNavigation next={next} prev={prev} />
         <div className={`[ POKEMON__${pokemonName.toUpperCase()} ]`}>
           <div className="grid grid-flow-row sm:grid-cols-1 md:grid-cols-2">
@@ -47,7 +47,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data, next, prev }) => {
           </div>
         </div>
       </div>
-      <div className={`[ Border__${primaryType} ] bg-gray-100`}>
+      <div className={`[ Border__${primaryType} ]`}>
         <PokemonDetail abilities={abilities} />
       </div>
     </div>

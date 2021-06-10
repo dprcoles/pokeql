@@ -1,0 +1,29 @@
+.NAVBAR__Active {
+  color: theme('colors.page-alt-color');
+  border-color: theme('colors.page-alt-color')!important;
+}
+
+.NAVBAR__Hamburger {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.Hamburger__Bar1, .Hamburger__Bar2, .Hamburger__Bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: theme('colors.page-alt-color');
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.expanded .Hamburger__Bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.expanded .Hamburger__Bar2 {opacity: 0;}
+
+.expanded .Hamburger__Bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}

@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Footer from './Footer'
+import Navbar from './Navbar'
 
 interface WrapperProps {
   children?: React.ReactNode
@@ -33,9 +35,11 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
         <meta name="twitter:image" content={meta.image} />
         <meta name="twitter:image:alt" content={meta.imageAlt} />
       </Head>
-      <div className="[ WRAPPER ]">
-        <main>{children}</main>
+      <div className="[ WRAPPER ][ mb-32 ]">
+        <Navbar />
+        <main className="py-8">{children}</main>
       </div>
+      <Footer />
     </div>
   )
 }
