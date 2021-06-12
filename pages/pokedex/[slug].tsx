@@ -1,7 +1,7 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import { ApolloClient, InMemoryCache } from '@apollo/client'
+import client from '@/utils/client'
 import { PokemonPageData } from '@/types/PokemonData'
 import { GET_POKEMON_DETAIL } from '@/utils/queries'
 import { PokemonCard } from '@/components/pokedex/pokemon'
@@ -31,11 +31,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   const nextPokemonId = parsedSlug == MAX_POKEMON_ID ? MIN_POKEMON_ID : parsedSlug + 1
   const prevPokemonId = parsedSlug == MIN_POKEMON_ID ? MAX_POKEMON_ID : parsedSlug - 1
-
-  const client = new ApolloClient({
-    uri: 'https://beta.pokeapi.co/graphql/v1beta',
-    cache: new InMemoryCache(),
-  })
 
   const { data } = await client.query({
     query: GET_POKEMON_DETAIL,
