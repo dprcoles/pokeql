@@ -52,3 +52,8 @@ export type PokemonNavigationData = {
   id: number
   name: string
 }
+
+export type TypeColorData = {
+  fill: string
+  border: string
+}

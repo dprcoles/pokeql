@@ -42,7 +42,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data, next, prev }) => {
                   <PokemonType key={type.id} type={type} />
                 ))}
               </div>
-              <PokemonStats stats={stats} />
+              <PokemonStats stats={stats} name={pokemonName} type={primaryType} />
             </div>
           </div>
         </div>

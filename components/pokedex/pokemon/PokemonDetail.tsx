@@ -15,7 +15,7 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ abilities }) => {
             <div key={ability.id} className={`[ ABILITY__${ability.name.toUpperCase()} ]`}>
               <p>
                 <span className="capitalize font-bold">{ability.name}</span> -{' '}
-                {ability.effect[0].description}
+                {ability.effect[0]?.description}
               </p>
             </div>
           ))}
