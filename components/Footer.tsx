@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <div className="[ FOOTER ] bg-gray-100 px-4 py-8 border-t-2 border-page-alt-color">
       <div className="container mx-auto">
-        <div className="grid grid-flow-col grid-cols-3 px-36 text-gray-500">
+        <div className="grid grid-flow-col grid-cols-3 md:px-36 text-gray-500">
           <div className="[ FOOTER__Info ] px-4">
             <a href="/">
               <img src="/logo_full.png" alt="Poke QL Logo" className="[ FOOTER__Logo ] h-12" />
