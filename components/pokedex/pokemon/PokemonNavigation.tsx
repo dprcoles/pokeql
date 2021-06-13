@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { PokemonNavigationData } from '@/types/PokemonData'
-import { getPaddedPokemonId, resolvePokemonName } from '@/utils/helpers'
+import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from '@/utils/helpers'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 interface PokemonNavigationProps {
   next: PokemonNavigationData
@@ -16,20 +17,28 @@ const PokemonNavigation: React.FC<PokemonNavigationProps> = ({ next, prev }) => 
   const prevName = resolvePokemonName(prev.name)
 
   return (
-    <div>
+    <div className="[ POKEMON__NAVIGATION ][ flex ]">
       <Link href="/pokedex/[slug]" as={`/pokedex/${prev.id}`}>
-        <a>
-          <button className="float-left bg-gray-100 hover:bg-gray-200 border border-gray-200 p-2 rounded-md">
-            {'< '}#{prevId} <span className="capitalize">{prevName}</span>
-          </button>
+        <a className="hover:bg-pink-50 hover:text-page-alt-color p-2 rounded-md">
+          <img src={getPokemonImage(prev.id)} alt={prevName} className="w-16 mx-auto" />
+          <div className="flex">
+            <MdKeyboardArrowLeft size="1.5em" />
+            <p>
+              #{prevId} <span className="capitalize">{prevName}</span>
+            </p>
+          </div>
         </a>
       </Link>
+      <div className="mx-auto"></div>
       <Link href="/pokedex/[slug]" as={`/pokedex/${next.id}`}>
-        <a>
-          <button className="float-right bg-gray-100 hover:bg-gray-200 border border-gray-200 p-2 rounded-md">
-            #{nextId} <span className="capitalize">{nextName}</span>
-            {' >'}
-          </button>
+        <a className="hover:bg-pink-50 hover:text-page-alt-color p-2 rounded-md">
+          <img src={getPokemonImage(next.id)} alt={nextName} className="w-16 mx-auto" />
+          <div className="flex">
+            <p>
+              #{nextId} <span className="capitalize">{nextName}</span>
+            </p>
+            <MdKeyboardArrowRight size="1.5em" />
+          </div>
         </a>
       </Link>
     </div>
