@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
 export const GET_POKEMON_LIST = gql`
-  query GetPokemonList($offset: Int = 0, $maxPokemonId: Int!) {
+  query GetPokemonList($offset: Int!, $maxPokemonId: Int!) {
     pokemon: pokemon_v2_pokemon(
       order_by: { id: asc }
       where: { id: { _lte: $maxPokemonId } }
@@ -10,6 +10,11 @@ export const GET_POKEMON_LIST = gql`
     ) {
       id
       name
+    }
+    total: pokemon_v2_pokemon_aggregate(where: { id: { _lte: $maxPokemonId } }) {
+      agg: aggregate {
+        count
+      }
     }
   }
 `
