@@ -1,26 +1,40 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import client from '@/utils/client'
-import { PokemonPageData } from '@/types/PokemonData'
 import { GET_POKEMON_DETAIL } from '@/utils/queries'
 import { PokemonCard } from '@/components/pokedex/pokemon'
 import Wrapper from '@/components/Wrapper'
 import { API_LANGUAGE_ID, MAX_POKEMON_ID, MIN_POKEMON_ID } from '@/utils/constants'
+import { useQuery } from '@apollo/client'
+import Loading from '@/components/Loading'
+import ErrorMessage from '@/components/ErrorMessage'
 
 interface PokemonProps {
-  data: PokemonPageData
+  id: number
+  nextId: number
+  prevId: number
 }
 
 interface IParams extends ParsedUrlQuery {
   slug: string
 }
 
-const Pokemon: React.FC<PokemonProps> = ({ data }) => {
-  const { pokemon, prev, next } = data
+const Pokemon: React.FC<PokemonProps> = ({ id, nextId, prevId }) => {
+  const { data, loading, error } = useQuery(GET_POKEMON_DETAIL, {
+    variables: {
+      id,
+      languageId: API_LANGUAGE_ID,
+      nextId,
+      prevId,
+    },
+  })
+
+  if (loading) return <Loading />
+  if (error || !data) return <ErrorMessage />
+
   return (
     <Wrapper>
-      <PokemonCard data={pokemon} prev={prev} next={next} />
+      <PokemonCard data={data.pokemon} prev={data.prev} next={data.next} />
     </Wrapper>
   )
 }
@@ -32,19 +46,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const nextPokemonId = parsedSlug == MAX_POKEMON_ID ? MIN_POKEMON_ID : parsedSlug + 1
   const prevPokemonId = parsedSlug == MIN_POKEMON_ID ? MAX_POKEMON_ID : parsedSlug - 1
 
-  const { data } = await client.query({
-    query: GET_POKEMON_DETAIL,
-    variables: {
-      id: parsedSlug,
-      languageId: API_LANGUAGE_ID,
-      nextId: nextPokemonId,
-      prevId: prevPokemonId,
-    },
-  })
-
   return {
     props: {
-      data: data,
+      id: parsedSlug,
+      nextId: nextPokemonId,
+      prevId: prevPokemonId,
     },
   }
 }
