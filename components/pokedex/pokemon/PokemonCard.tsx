@@ -1,19 +1,22 @@
 import React from 'react'
-import { PokemonCardData, PokemonNavigationData } from '@/types/PokemonData'
+import { PokemonCardData, PokemonEvolutionsData, PokemonNavigationData } from '@/types/PokemonData'
 import { getPaddedPokemonId, getFullSizePokemonImage, resolvePokemonName } from '@/utils/helpers'
 import PokemonType from './PokemonType'
 import PokemonDetail from './PokemonDetail'
 import PokemonStats from './PokemonStats'
 import PokemonNavigation from './PokemonNavigation'
+import PokemonEvolution from './PokemonEvolution'
 
 interface PokemonCardProps {
   data: PokemonCardData
+  evolution: Array<PokemonEvolutionsData>
   next: PokemonNavigationData
   prev: PokemonNavigationData
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ data, next, prev }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ data, evolution, next, prev }) => {
   const { id, name, abilities, types, stats } = data
+  const { chain } = evolution[0]
 
   const primaryType = types[0].type.name.toUpperCase()
 
@@ -44,6 +47,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data, next, prev }) => {
               </div>
               <PokemonStats stats={stats} name={pokemonName} type={primaryType} />
             </div>
+          </div>
+          <div className="[ POKEMON__EVOLUTION ][ p-4 ]">
+            <PokemonEvolution chain={chain} />
           </div>
         </div>
       </div>

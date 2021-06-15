@@ -44,11 +44,21 @@ export type PokemonStatData = {
 
 export type PokemonPageData = {
   pokemon: PokemonCardData
+  evolution: Array<PokemonEvolutionsData>
   next: PokemonNavigationData
   prev: PokemonNavigationData
 }
 
 export type PokemonNavigationData = {
+  id: number
+  name: string
+}
+
+export type PokemonEvolutionsData = {
+  chain: Array<PokemonEvolutionData>
+}
+
+export type PokemonEvolutionData = {
   id: number
   name: string
 }

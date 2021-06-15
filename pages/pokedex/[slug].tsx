@@ -34,7 +34,12 @@ const Pokemon: React.FC<PokemonProps> = ({ id, nextId, prevId }) => {
 
   return (
     <Wrapper>
-      <PokemonCard data={data.pokemon} prev={data.prev} next={data.next} />
+      <PokemonCard
+        data={data.pokemon}
+        evolution={data.evolution}
+        prev={data.prev}
+        next={data.next}
+      />
     </Wrapper>
   )
 }

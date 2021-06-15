@@ -47,6 +47,14 @@ export const GET_POKEMON_DETAIL = gql`
         effort
       }
     }
+    evolution: pokemon_v2_evolutionchain(
+      where: { pokemon_v2_pokemonspecies: { id: { _eq: $id } } }
+    ) {
+      chain: pokemon_v2_pokemonspecies(order_by: { order: asc }) {
+        id
+        name
+      }
+    }
     next: pokemon_v2_pokemon_by_pk(id: $nextId) {
       id
       name
