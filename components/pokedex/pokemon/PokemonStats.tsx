@@ -35,6 +35,7 @@ const PokemonStats: React.FC<PokemonStatsProps> = ({ stats, name, type }) => {
     data.push({
       stat: getStatNameById(stat.stat_id),
       value: stat.base_stat,
+      effort: stat.effort,
     })
   })
 
@@ -43,21 +44,42 @@ const PokemonStats: React.FC<PokemonStatsProps> = ({ stats, name, type }) => {
   return (
     <div className="[ POKEMON__STATS ][ bg-gray-100 rounded-md mt-4 p-2 ]">
       <div>
-        <p className="font-bold text-xl p-2">Base Stats</p>
-        <div className="[ STATS__RADAR ][ py-2 ]">
-          <RadarChart cx={200} cy={200} outerRadius={150} width={500} height={400} data={data}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey="stat" />
-            <Tooltip />
-            <Radar
-              name={name.toUpperCase()}
-              dataKey="value"
-              stroke={border}
-              fill={fill}
-              fillOpacity={0.8}
-            />
-            <PolarRadiusAxis domain={[0, 255]} angle={30} />
-          </RadarChart>
+        <div className="[ STATS__RADAR ][ py-2 grid grid-cols-1 md:grid-cols-3 ]">
+          <div className="col-span-2">
+            <p className="font-bold text-xl p-2">Base Stats</p>
+            <RadarChart cx={200} cy={200} outerRadius={150} width={400} height={400} data={data}>
+              <PolarGrid />
+              <PolarAngleAxis dataKey="stat" />
+              <Tooltip />
+              <Radar
+                name={name.toUpperCase()}
+                dataKey="value"
+                stroke={border}
+                fill={fill}
+                fillOpacity={0.8}
+              />
+              <PolarRadiusAxis domain={[0, 255]} angle={30} />
+            </RadarChart>
+          </div>
+          <div>
+            <p className="font-bold text-xl p-2">Effort Values</p>
+            {stats.map(({ stat_id, effort }) => (
+              <div
+                key={stat_id}
+                className={`[ STAT__${getStatNameById(stat_id)
+                  .toUpperCase()
+                  .replace('.', '_')
+                  .replace(' ', '')} ][ rounded-md m-4 px-2 py-2 text-lg ]`}
+              >
+                {getStatNameById(stat_id)}
+                <span
+                  className={`float-right bg-white px-2 rounded-md ${effort > 0 && 'font-bold'}`}
+                >
+                  {effort}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
