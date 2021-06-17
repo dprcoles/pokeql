@@ -3,7 +3,6 @@ import { PokemonEvolutionData } from '@/types/PokemonData'
 import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from '@/utils/helpers'
 import Link from 'next/link'
 import { FaLongArrowAltRight } from 'react-icons/fa'
-import { POKEDEX_ROUTE } from '@/utils/constants'
 
 interface PokemonEvolutionProps {
   chain: Array<PokemonEvolutionData>
@@ -23,7 +22,7 @@ const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({ chain }) => {
       )
     items.push(
       <div key={id} className="rounded-md hover:bg-gray-600 p-2">
-        <Link href={`${POKEDEX_ROUTE}/[slug]`} as={`${POKEDEX_ROUTE}/${id}`}>
+        <Link href="/[slug]" as={`/${id}`}>
           <a>
             <div>
               <img
