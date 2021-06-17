@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { PokemonNavigationData } from '@/types/PokemonData'
 import { getPaddedPokemonId, resolvePokemonName } from '@/utils/helpers'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import { POKEDEX_ROUTE } from '@/utils/constants'
 
 interface PokemonNavigationProps {
   next: PokemonNavigationData
@@ -19,7 +20,7 @@ const PokemonNavigation: React.FC<PokemonNavigationProps> = ({ next, prev }) => 
   return (
     <div className="[ POKEMON__NAVIGATION ][ flex ]">
       <div className="[ POKEMON__PREV ][ float-left w-full ]">
-        <Link href="/pokedex/[slug]" as={`/pokedex/${prev.id}`}>
+        <Link href={`${POKEDEX_ROUTE}/[slug]`} as={`${POKEDEX_ROUTE}/${prev.id}`}>
           <a className="hover:bg-pink-50 p-4 rounded-md flex text-5xl">
             <MdKeyboardArrowLeft size="1.25em" className="text-gray-300" />
             <p className="font-bold w-full text-left text-gray-300">
@@ -33,7 +34,7 @@ const PokemonNavigation: React.FC<PokemonNavigationProps> = ({ next, prev }) => 
         </Link>
       </div>
       <div className="[ POKEMON__NEXT ][ float-right w-full ]">
-        <Link href="/pokedex/[slug]" as={`/pokedex/${next.id}`}>
+        <Link href={`${POKEDEX_ROUTE}/[slug]`} as={`${POKEDEX_ROUTE}/${next.id}`}>
           <a className="hover:bg-pink-50 p-4 rounded-md flex text-5xl">
             <p className="font-bold w-full text-right text-gray-300">
               <span className="hidden md:inline capitalize ">

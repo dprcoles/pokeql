@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NextLink from 'next/link'
-import { pages } from '@/utils/constants'
+import { HOME_ROUTE, pages } from '@/utils/constants'
 
 const Navbar: React.FC = () => {
   const [menuIsActive, setMenuIsActive] = useState(false)
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
           <div className="[ Hamburger__Bar3 ]"></div>
         </button>
         <div className="[ NAVBAR__Logo ] mx-auto md:mr-auto md:ml-0">
-          <a href="/" aria-label="PokeQL Logo" title="PokeQL Logo">
+          <a href={HOME_ROUTE} aria-label="PokeQL Logo" title="PokeQL Logo">
             <img src="/logo_full.png" alt="PokeQL Logo" className="h-20 py-5" />
           </a>
         </div>

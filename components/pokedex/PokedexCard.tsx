@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from '@/utils/helpers'
 import { PokedexCardData } from '@/types/PokemonData'
+import { POKEDEX_ROUTE } from '@/utils/constants'
 
 interface PokedexCardProps {
   data: PokedexCardData
@@ -14,7 +15,7 @@ const PokedexCard: React.FC<PokedexCardProps> = ({ data }) => {
   const pokemonImage = getPokemonImage(id)
 
   return (
-    <Link href="/pokedex/[slug]" as={`/pokedex/${id}`}>
+    <Link href={`${POKEDEX_ROUTE}/[slug]`} as={`${POKEDEX_ROUTE}/${id}`}>
       <a>
         <div className="p-4 shadow-sm hover:bg-gray-50">
           <img className="mx-auto" src={pokemonImage} alt={pokemonName} />
