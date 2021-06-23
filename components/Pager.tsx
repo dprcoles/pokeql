@@ -1,38 +1,39 @@
 import React from 'react'
 import { PAGE_SIZE } from '@/utils/constants'
-import { AiOutlineStepBackward, AiOutlineStepForward } from 'react-icons/ai'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 interface PagerProps {
   totalItems: number
   currentPage: number
-  changePage(page: number): any
+  changePage: (page: number) => void
 }
 
 const Pager: React.FC<PagerProps> = ({ totalItems, currentPage, changePage }) => {
   const lastPage = Math.ceil(totalItems / PAGE_SIZE)
   return (
-    <div className="flex flex-row p-4 text-lg">
+    <div className="flex flex-row py-4 px-2 text-lg">
       {currentPage !== 1 && (
         <>
-          <button className="px-1" onClick={() => changePage(1)}>
-            <AiOutlineStepBackward size="1.5em" />
-          </button>
-          <button className="px-1" onClick={() => changePage(currentPage - 1)}>
+          <button
+            className="flex p-4 bg-gray-50 hover:text-white hover:bg-page-alt-color rounded-md"
+            onClick={() => changePage(currentPage - 1)}
+          >
             <MdKeyboardArrowLeft size="1.5em" />
+            <span className="hidden md:inline">Previous Page</span>
           </button>
         </>
       )}
-      <div className="mx-auto">
+      <div className="mx-auto p-4">
         Page <b>{currentPage}</b> of <b>{lastPage}</b>
       </div>
       {currentPage !== lastPage && (
         <>
-          <button className="px-1" onClick={() => changePage(currentPage + 1)}>
+          <button
+            className="flex p-4 bg-gray-50 hover:text-white hover:bg-page-alt-color rounded-md"
+            onClick={() => changePage(currentPage + 1)}
+          >
+            <span className="hidden md:inline">Next Page</span>
             <MdKeyboardArrowRight size="1.5em" />
-          </button>
-          <button className="px-1" onClick={() => changePage(lastPage)}>
-            <AiOutlineStepForward size="1.5em" />
           </button>
         </>
       )}
