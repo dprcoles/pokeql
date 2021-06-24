@@ -22,9 +22,12 @@ const PokemonNavigation: React.FC<PokemonNavigationProps> = ({ next, prev }) => 
       <div className="[ POKEMON__NAVIGATION ][ flex ]">
         <div className="[ POKEMON__PREV ][ float-left w-full ]">
           <Link href="/[slug]" as={`/${prev.id}`}>
-            <a className="hover:bg-pink-50 p-4 rounded-md flex text-5xl">
-              <MdKeyboardArrowLeft size="1.25em" className="text-gray-300" />
-              <p className="font-bold w-full text-left text-gray-300">
+            <a
+              className="hover:bg-pink-50 p-4 rounded-md flex text-4xl text-gray-300 hover:text-page-alt-color"
+              title={`Check out Pokémon #${prevId}`}
+            >
+              <MdKeyboardArrowLeft size="1.25em" />
+              <p className="font-bold w-full text-left">
                 #{prevId}
                 <span className="hidden md:inline capitalize ">
                   {'  '}
@@ -37,24 +40,27 @@ const PokemonNavigation: React.FC<PokemonNavigationProps> = ({ next, prev }) => 
         <div className="w-full">
           <Link href="/">
             <a
-              className="hover:bg-pink-50 p-4 rounded-md flex text-5xl text-center"
+              className="hover:bg-pink-50 p-4 rounded-md flex text-4xl text-center text-gray-500 hover:text-page-alt-color"
               title="Return to Pokedex"
             >
-              <CgPokemon size="1.25em" className="mx-auto text-gray-500" />
+              <CgPokemon size="1.25em" className="mx-auto" />
             </a>
           </Link>
         </div>
         <div className="[ POKEMON__NEXT ][ float-right w-full ]">
           <Link href="/[slug]" as={`/${next.id}`}>
-            <a className="hover:bg-pink-50 p-4 rounded-md flex text-5xl">
-              <p className="font-bold w-full text-right text-gray-300">
+            <a
+              className="hover:bg-pink-50 p-4 rounded-md flex text-4xl text-gray-300 hover:text-page-alt-color"
+              title={`Check out Pokémon #${nextId}`}
+            >
+              <p className="font-bold w-full text-right">
                 <span className="hidden md:inline capitalize ">
                   {nextName}
                   {'  '}
                 </span>
                 #{nextId}
               </p>
-              <MdKeyboardArrowRight size="1.25em" className="text-gray-300" />
+              <MdKeyboardArrowRight size="1.25em" />
             </a>
           </Link>
         </div>
