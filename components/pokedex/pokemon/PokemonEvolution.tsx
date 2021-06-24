@@ -16,7 +16,7 @@ const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({ chain }) => {
   chain.map(({ id, name }, index) => {
     if (index !== 0)
       items.push(
-        <div className="flex justify-self-center items-center">
+        <div key={`${id}-arrow`} className="flex justify-self-center items-center">
           <FaLongArrowAltRight size="5em" />
         </div>
       )
