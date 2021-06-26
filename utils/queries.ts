@@ -1,10 +1,19 @@
 import { gql } from '@apollo/client'
 
 export const GET_POKEMON_LIST = gql`
-  query GetPokemonList($offset: Int!, $maxPokemonId: Int!, $search: String) {
+  query GetPokemonList(
+    $offset: Int!
+    $maxPokemonId: Int!
+    $search: String
+    $types: Int_comparison_exp
+  ) {
     pokemon: pokemon_v2_pokemon(
       order_by: { id: asc }
-      where: { id: { _lte: $maxPokemonId }, name: { _ilike: $search } }
+      where: {
+        id: { _lte: $maxPokemonId }
+        name: { _ilike: $search }
+        pokemon_v2_pokemontypes: { pokemon_v2_type: { id: $types } }
+      }
       limit: 20
       offset: $offset
     ) {
@@ -12,7 +21,11 @@ export const GET_POKEMON_LIST = gql`
       name
     }
     total: pokemon_v2_pokemon_aggregate(
-      where: { id: { _lte: $maxPokemonId }, name: { _ilike: $search } }
+      where: {
+        id: { _lte: $maxPokemonId }
+        name: { _ilike: $search }
+        pokemon_v2_pokemontypes: { pokemon_v2_type: { id: $types } }
+      }
     ) {
       agg: aggregate {
         count
@@ -64,6 +77,14 @@ export const GET_POKEMON_DETAIL = gql`
     prev: pokemon_v2_pokemon_by_pk(id: $prevId) {
       id
       name
+    }
+  }
+`
+export const GET_POKEMON_TYPES = gql`
+  query GetPokemonTypes {
+    types: pokemon_v2_type(where: { id: { _lte: 18 } }) {
+      value: id
+      label: name
     }
   }
 `

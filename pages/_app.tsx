@@ -3,7 +3,7 @@ import { ApolloProvider } from '@apollo/client'
 import client from '@/utils/client'
 import '@/styles/globals.scss'
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ApolloProvider client={client}>
       <Component {...pageProps} />
