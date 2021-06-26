@@ -8,7 +8,7 @@ export const option: any = (
   styles: CSSProperties,
   props: OptionProps<AutoCompleteOption, boolean>
 ) => {
-  const { fill, border } = getTypeColors(props.data.label)
+  const { fill } = getTypeColors(props.data.label)
   const color = chroma(fill)
   return {
     ...styles,
