@@ -2,7 +2,6 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_POKEMON_TYPES } from 'utils/queries'
 import AutoComplete from './autocomplete/AutoComplete'
-import ErrorMessage from '@/components/ErrorMessage'
 import { AutoCompleteOption } from '@/types/FilterTypes'
 import { OptionsType } from 'react-select'
 
