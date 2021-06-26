@@ -7,6 +7,7 @@ export const control: any = (
   props: ControlProps<AutoCompleteOption, boolean>
 ) => ({
   ...styles,
-  border: `0.1rem solid ${props.theme.colors.neutral10}`,
+  border: `2px solid ${props.theme.colors.neutral10}`,
   backgroundColor: 'white',
+  borderRadius: '0px',
 })
