@@ -36,19 +36,24 @@ const Pokedex: React.FC = () => {
     },
   })
 
-  if (loading) return <Loading />
-  if (error || !data) return <ErrorMessage />
-
   return (
     <Wrapper>
       <div className="md:p-16">
         <PokedexFilterMenu store={store} />
-        <PokedexList data={data.pokemon} />
-        <Pager
-          totalItems={data.total.agg.count}
-          currentPage={store.pageNumber}
-          changePage={store.updatePageNumber}
-        />
+        {loading ? (
+          <Loading />
+        ) : error || !data ? (
+          <ErrorMessage />
+        ) : (
+          <>
+            <PokedexList data={data.pokemon} />
+            <Pager
+              totalItems={data.total.agg.count}
+              currentPage={store.pageNumber}
+              changePage={store.updatePageNumber}
+            />
+          </>
+        )}
       </div>
     </Wrapper>
   )

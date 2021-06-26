@@ -3,12 +3,10 @@ import Wrapper from './Wrapper'
 import Spinner from './Spinner'
 
 const Loading: React.FC = () => (
-  <Wrapper>
-    <div className="text-lg text-center">
-      <Spinner />
-      <p>Loading...</p>
-    </div>
-  </Wrapper>
+  <div className="text-lg text-center">
+    <Spinner />
+    <p>Loading...</p>
+  </div>
 )
 
 export default Loading
