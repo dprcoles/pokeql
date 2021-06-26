@@ -1,6 +1,7 @@
 import create from 'zustand'
 import { PokedexFilterStore } from '@/types/Stores'
 import { AutoCompleteOption } from '@/types/FilterTypes'
+import { OptionsType } from 'react-select'
 
 const usePokedexFilterStore = create<PokedexFilterStore>(
   (set): PokedexFilterStore => ({
@@ -18,7 +19,7 @@ const usePokedexFilterStore = create<PokedexFilterStore>(
         ...state,
         pageNumber,
       })),
-    updateTypes: (types: Array<AutoCompleteOption>) =>
+    updateTypes: (types: OptionsType<AutoCompleteOption>) =>
       set(state => ({
         ...state,
         types,
