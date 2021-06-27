@@ -42,7 +42,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data, evolution, next, prev }
               <p className="font-extrabold text-7xl capitalize pb-3">{pokemonName}</p>
               <div className="inline-flex space-x-2 pt-1">
                 {types.map(({ type }) => (
-                  <PokemonType key={type.id} type={type} />
+                  <PokemonType key={type.id} type={type} size="regular" />
                 ))}
               </div>
               <PokemonStats stats={stats} name={pokemonName} type={primaryType} />

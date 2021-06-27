@@ -25,6 +25,12 @@ export const GET_POKEMON_LIST = gql`
     ) {
       id
       name
+      types: pokemon_v2_pokemontypes {
+        type: pokemon_v2_type {
+          id
+          name
+        }
+      }
     }
     total: pokemon_v2_pokemon_aggregate(
       where: {

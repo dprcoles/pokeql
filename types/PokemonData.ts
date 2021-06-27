@@ -1,6 +1,7 @@
 export type PokedexCardData = {
   id: number
   name: string
+  types: Array<PokemonTypesData>
 }
 
 export type PokemonCardData = {
