@@ -1,4 +1,6 @@
+import { HeightFilter, WeightFilter } from '@/types/FilterTypes'
 import { TypeColorData } from '@/types/PokemonData'
+import { HEIGHT_OPTIONS, HEIGHT_RANGES, WEIGHT_OPTIONS, WEIGHT_RANGES } from './constants'
 
 export function getPokemonImage(id: number): string {
   const paddedId = getPaddedPokemonId(id)
@@ -116,4 +118,58 @@ export function getTypeColors(type: string): TypeColorData {
         border: '',
       }
   }
+}
+
+export function getHeightFilter(heights: Array<string>): HeightFilter {
+  const filter = {
+    _gte: HEIGHT_RANGES.short.min,
+    _lte: HEIGHT_RANGES.tall.max,
+  }
+
+  if (heights.length === 0) return filter
+
+  if (heights.includes(HEIGHT_OPTIONS.short)) {
+    filter._gte = HEIGHT_RANGES.short.min
+    filter._lte = HEIGHT_RANGES.short.max
+  }
+
+  if (heights.includes(HEIGHT_OPTIONS.medium)) {
+    filter._lte = HEIGHT_RANGES.medium.max
+    if (!heights.includes(HEIGHT_OPTIONS.short)) filter._gte = HEIGHT_RANGES.medium.min
+  }
+
+  if (heights.includes(HEIGHT_OPTIONS.tall)) {
+    filter._lte = HEIGHT_RANGES.tall.max
+    if (!heights.includes(HEIGHT_OPTIONS.short) && !heights.includes(HEIGHT_OPTIONS.medium))
+      filter._gte = HEIGHT_RANGES.tall.min
+  }
+
+  return filter
+}
+
+export function getWeightFilter(weights: Array<string>): WeightFilter {
+  const filter = {
+    _gte: WEIGHT_RANGES.light.min,
+    _lte: WEIGHT_RANGES.heavy.max,
+  }
+
+  if (weights.length === 0) return filter
+
+  if (weights.includes(WEIGHT_OPTIONS.light)) {
+    filter._gte = WEIGHT_RANGES.light.min
+    filter._lte = WEIGHT_RANGES.light.max
+  }
+
+  if (weights.includes(WEIGHT_OPTIONS.medium)) {
+    filter._lte = WEIGHT_RANGES.medium.max
+    if (!weights.includes(WEIGHT_OPTIONS.light)) filter._gte = WEIGHT_RANGES.medium.min
+  }
+
+  if (weights.includes(WEIGHT_OPTIONS.heavy)) {
+    filter._lte = WEIGHT_RANGES.heavy.max
+    if (!weights.includes(WEIGHT_OPTIONS.light) && !weights.includes(WEIGHT_OPTIONS.medium))
+      filter._gte = WEIGHT_RANGES.heavy.min
+  }
+
+  return filter
 }

@@ -8,6 +8,8 @@ const usePokedexFilterStore = create<PokedexFilterStore>(
     search: '',
     pageNumber: 1,
     types: [],
+    heights: [],
+    weights: [],
     updateSearch: (search: string) =>
       set(state => ({
         ...state,
@@ -24,6 +26,16 @@ const usePokedexFilterStore = create<PokedexFilterStore>(
         ...state,
         types,
         pageNumber: 1,
+      })),
+    updateHeights: (heights: Array<string>) =>
+      set(state => ({
+        ...state,
+        heights,
+      })),
+    updateWeights: (weights: Array<string>) =>
+      set(state => ({
+        ...state,
+        weights,
       })),
   })
 )

@@ -8,9 +8,12 @@ import { GET_POKEMON_LIST } from 'utils/queries'
 import { DEFAULT_TYPES_COMPARISON, MAX_POKEMON_ID, PAGE_SIZE } from '@/utils/constants'
 import Pager from '@/components/Pager'
 import usePokedexFilterStore from '@/stores/filterStore'
+import { getHeightFilter, getWeightFilter } from '@/utils/helpers'
 
 const Pokedex: React.FC = () => {
   const store = usePokedexFilterStore(state => state)
+
+  console.log(store)
 
   const getTypesVariable = () => {
     const defaultValue = DEFAULT_TYPES_COMPARISON
@@ -33,6 +36,8 @@ const Pokedex: React.FC = () => {
       offset: (store.pageNumber - 1) * PAGE_SIZE,
       search: `%${store.search}%`,
       types: getTypesVariable(),
+      height: getHeightFilter(store.heights),
+      weight: getWeightFilter(store.weights),
     },
   })
 

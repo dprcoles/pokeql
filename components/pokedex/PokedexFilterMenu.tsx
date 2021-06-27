@@ -1,6 +1,6 @@
 import React from 'react'
 import { PokedexFilterStore } from '@/types/Stores'
-import { SearchFilter, TypesFilter } from './filters'
+import { HeightFilter, SearchFilter, TypesFilter, WeightFilter } from './filters'
 
 interface PokedexFilterMenuProps {
   store: PokedexFilterStore
@@ -17,6 +17,14 @@ const PokedexFilterMenu: React.FC<PokedexFilterMenuProps> = ({ store }) => {
         <div className="px-2">
           <p>Types</p>
           <TypesFilter initialTypes={store.types} updateTypes={store.updateTypes} />
+        </div>
+        <div className="px-2">
+          <p>Height</p>
+          <HeightFilter heights={store.heights} updateHeights={store.updateHeights} />
+        </div>
+        <div className="px-2">
+          <p>Weight</p>
+          <WeightFilter weights={store.weights} updateWeights={store.updateWeights} />
         </div>
       </div>
     </div>

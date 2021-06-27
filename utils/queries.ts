@@ -6,6 +6,8 @@ export const GET_POKEMON_LIST = gql`
     $maxPokemonId: Int!
     $search: String
     $types: Int_comparison_exp
+    $height: Int_comparison_exp = {}
+    $weight: Int_comparison_exp = {}
   ) {
     pokemon: pokemon_v2_pokemon(
       order_by: { id: asc }
@@ -13,6 +15,8 @@ export const GET_POKEMON_LIST = gql`
         id: { _lte: $maxPokemonId }
         name: { _ilike: $search }
         pokemon_v2_pokemontypes: { pokemon_v2_type: { id: $types } }
+        height: $height
+        weight: $weight
       }
       limit: 20
       offset: $offset
@@ -25,6 +29,8 @@ export const GET_POKEMON_LIST = gql`
         id: { _lte: $maxPokemonId }
         name: { _ilike: $search }
         pokemon_v2_pokemontypes: { pokemon_v2_type: { id: $types } }
+        height: $height
+        weight: $weight
       }
     ) {
       agg: aggregate {
