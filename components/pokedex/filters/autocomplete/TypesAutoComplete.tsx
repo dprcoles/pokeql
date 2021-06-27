@@ -7,19 +7,18 @@ import {
   multiValue,
   multiValueLabel,
   multiValueRemove,
-  option,
-  placeholder,
+  typeOption,
   valueContainer,
 } from './styles'
 
-interface AutoCompleteProps {
+interface TypesAutoCompleteProps {
   name: string
   options: OptionsType<AutoCompleteOption>
   defaultOptions: OptionsType<AutoCompleteOption>
   updateOptions: (types: OptionsType<AutoCompleteOption>) => void
 }
 
-const AutoComplete: React.FC<AutoCompleteProps> = ({
+const TypesAutoCompleteProps: React.FC<TypesAutoCompleteProps> = ({
   name,
   options,
   defaultOptions,
@@ -39,8 +38,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
           multiValue,
           multiValueLabel,
           multiValueRemove,
-          option,
-          placeholder,
+          option: typeOption,
           valueContainer,
         }}
         theme={theme => ({
@@ -58,4 +56,4 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
   )
 }
 
-export default AutoComplete
+export default TypesAutoCompleteProps

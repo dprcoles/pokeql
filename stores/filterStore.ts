@@ -10,6 +10,7 @@ const usePokedexFilterStore = create<PokedexFilterStore>(
     types: [],
     heights: [],
     weights: [],
+    ability: null,
     updateSearch: (search: string) =>
       set(state => ({
         ...state,
@@ -36,6 +37,11 @@ const usePokedexFilterStore = create<PokedexFilterStore>(
       set(state => ({
         ...state,
         weights,
+      })),
+    updateAbility: (ability: AutoCompleteOption | null) =>
+      set(state => ({
+        ...state,
+        ability,
       })),
   })
 )

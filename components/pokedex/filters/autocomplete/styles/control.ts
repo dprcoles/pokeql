@@ -9,5 +9,5 @@ export const control: any = (
   ...styles,
   border: `2px solid ${props.theme.colors.neutral10}`,
   backgroundColor: 'white',
-  borderRadius: '0px',
+  borderRadius: '0.375rem',
 })

@@ -30,6 +30,11 @@ const Pokedex: React.FC = () => {
     return defaultValue
   }
 
+  const getAbilityFilter = () => {
+    if (!store.ability?.value) return {}
+    return { _eq: store.ability?.value }
+  }
+
   const { data, loading, error } = useQuery(GET_POKEMON_LIST, {
     variables: {
       maxPokemonId: MAX_POKEMON_ID,
@@ -38,6 +43,7 @@ const Pokedex: React.FC = () => {
       types: getTypesVariable(),
       height: getHeightFilter(store.heights),
       weight: getWeightFilter(store.weights),
+      ability: getAbilityFilter(),
     },
   })
 

@@ -8,6 +8,7 @@ export const GET_POKEMON_LIST = gql`
     $types: Int_comparison_exp
     $height: Int_comparison_exp = {}
     $weight: Int_comparison_exp = {}
+    $ability: Int_comparison_exp = {}
   ) {
     pokemon: pokemon_v2_pokemon(
       order_by: { id: asc }
@@ -17,6 +18,7 @@ export const GET_POKEMON_LIST = gql`
         pokemon_v2_pokemontypes: { pokemon_v2_type: { id: $types } }
         height: $height
         weight: $weight
+        pokemon_v2_pokemonabilities: { pokemon_v2_ability: { id: $ability } }
       }
       limit: 20
       offset: $offset
@@ -31,6 +33,7 @@ export const GET_POKEMON_LIST = gql`
         pokemon_v2_pokemontypes: { pokemon_v2_type: { id: $types } }
         height: $height
         weight: $weight
+        pokemon_v2_pokemonabilities: { pokemon_v2_ability: { id: $ability } }
       }
     ) {
       agg: aggregate {
@@ -89,6 +92,15 @@ export const GET_POKEMON_DETAIL = gql`
 export const GET_POKEMON_TYPES = gql`
   query GetPokemonTypes {
     types: pokemon_v2_type(where: { id: { _lte: 18 } }) {
+      value: id
+      label: name
+    }
+  }
+`
+
+export const GET_POKEMON_ABILITIES = gql`
+  query GetPokemonAbilities {
+    abilities: pokemon_v2_ability(order_by: { name: asc }) {
       value: id
       label: name
     }

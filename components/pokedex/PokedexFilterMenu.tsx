@@ -1,6 +1,7 @@
 import React from 'react'
 import { PokedexFilterStore } from '@/types/Stores'
 import { HeightFilter, SearchFilter, TypesFilter, WeightFilter } from './filters'
+import AbilityFilter from './filters/AbilityFilter'
 
 interface PokedexFilterMenuProps {
   store: PokedexFilterStore
@@ -25,6 +26,10 @@ const PokedexFilterMenu: React.FC<PokedexFilterMenuProps> = ({ store }) => {
         <div className="px-2">
           <p>Weight</p>
           <WeightFilter weights={store.weights} updateWeights={store.updateWeights} />
+        </div>
+        <div className="px-2">
+          <p>Ability</p>
+          <AbilityFilter ability={store.ability} updateAbility={store.updateAbility} />
         </div>
       </div>
     </div>

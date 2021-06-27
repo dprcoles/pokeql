@@ -4,7 +4,7 @@ import chroma from 'chroma-js'
 import { AutoCompleteOption } from '@/types/FilterTypes'
 import { getTypeColors } from '@/utils/helpers'
 
-export const option: any = (
+export const typeOption: any = (
   styles: CSSProperties,
   props: OptionProps<AutoCompleteOption, boolean>
 ) => {
