@@ -29,17 +29,20 @@ const Pokemon: React.FC<PokemonProps> = ({ id, nextId, prevId }) => {
     },
   })
 
-  if (loading) return <Loading />
-  if (error || !data) return <ErrorMessage />
-
   return (
     <Wrapper>
-      <PokemonCard
-        data={data.pokemon}
-        evolution={data.evolution}
-        prev={data.prev}
-        next={data.next}
-      />
+      {loading ? (
+        <Loading />
+      ) : error || !data ? (
+        <ErrorMessage />
+      ) : (
+        <PokemonCard
+          data={data.pokemon}
+          evolution={data.evolution}
+          prev={data.prev}
+          next={data.next}
+        />
+      )}
     </Wrapper>
   )
 }

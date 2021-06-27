@@ -1,22 +1,49 @@
 import create from 'zustand'
-import { PokedexStore } from '@/types/Stores'
+import { PokedexFilterStore } from '@/types/Stores'
+import { AutoCompleteOption } from '@/types/FilterTypes'
+import { OptionsType } from 'react-select'
 
-const usePokedexStore = create<PokedexStore>(
-  (set): PokedexStore => ({
+const usePokedexFilterStore = create<PokedexFilterStore>(
+  (set): PokedexFilterStore => ({
     search: '',
+    pageNumber: 1,
+    types: [],
+    heights: [],
+    weights: [],
+    ability: null,
     updateSearch: (search: string) =>
       set(state => ({
         ...state,
         search,
         pageNumber: 1,
       })),
-    pageNumber: 1,
     updatePageNumber: (pageNumber: number) =>
       set(state => ({
         ...state,
         pageNumber,
       })),
+    updateTypes: (types: OptionsType<AutoCompleteOption>) =>
+      set(state => ({
+        ...state,
+        types,
+        pageNumber: 1,
+      })),
+    updateHeights: (heights: Array<string>) =>
+      set(state => ({
+        ...state,
+        heights,
+      })),
+    updateWeights: (weights: Array<string>) =>
+      set(state => ({
+        ...state,
+        weights,
+      })),
+    updateAbility: (ability: AutoCompleteOption | null) =>
+      set(state => ({
+        ...state,
+        ability,
+      })),
   })
 )
 
-export default usePokedexStore
+export default usePokedexFilterStore

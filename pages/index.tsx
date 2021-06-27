@@ -5,15 +5,33 @@ import Loading from '@/components/Loading'
 import Wrapper from '@/components/Wrapper'
 import { PokedexList, PokedexFilterMenu } from '@/components/pokedex'
 import { GET_POKEMON_LIST } from 'utils/queries'
-import { MAX_POKEMON_ID, PAGE_SIZE } from '@/utils/constants'
+import { DEFAULT_TYPES_COMPARISON, MAX_POKEMON_ID, PAGE_SIZE } from '@/utils/constants'
 import Pager from '@/components/Pager'
-import usePokedexStore from '@/stores/filterStore'
+import usePokedexFilterStore from '@/stores/filterStore'
+import { getHeightFilter, getWeightFilter } from '@/utils/helpers'
+import NoResults from '@/components/NoResults'
 
 const Pokedex: React.FC = () => {
-  const store = usePokedexStore(state => state)
+  const store = usePokedexFilterStore(state => state)
 
-  const handleSearch = (search: string) => {
-    store.updateSearch(search)
+  const getTypesVariable = () => {
+    const defaultValue = DEFAULT_TYPES_COMPARISON
+
+    if (store.types.length > 0) {
+      const newValue = {
+        _lte: DEFAULT_TYPES_COMPARISON._lte,
+        _in: store.types.map(x => x.value),
+      }
+
+      return newValue
+    }
+
+    return defaultValue
+  }
+
+  const getAbilityFilter = () => {
+    if (!store.ability?.value) return {}
+    return { _eq: store.ability?.value }
   }
 
   const { data, loading, error } = useQuery(GET_POKEMON_LIST, {
@@ -21,22 +39,33 @@ const Pokedex: React.FC = () => {
       maxPokemonId: MAX_POKEMON_ID,
       offset: (store.pageNumber - 1) * PAGE_SIZE,
       search: `%${store.search}%`,
+      types: getTypesVariable(),
+      height: getHeightFilter(store.heights),
+      weight: getWeightFilter(store.weights),
+      ability: getAbilityFilter(),
     },
   })
-
-  if (loading) return <Loading />
-  if (error || !data) return <ErrorMessage />
 
   return (
     <Wrapper>
       <div className="md:p-16">
-        <PokedexFilterMenu handleSearch={handleSearch} initialSearch={store.search} />
-        <PokedexList data={data.pokemon} />
-        <Pager
-          totalItems={data.total.agg.count}
-          currentPage={store.pageNumber}
-          changePage={store.updatePageNumber}
-        />
+        <PokedexFilterMenu store={store} />
+        {loading ? (
+          <Loading />
+        ) : error || !data ? (
+          <ErrorMessage />
+        ) : data.total.agg.count === 0 ? (
+          <NoResults />
+        ) : (
+          <>
+            <PokedexList data={data.pokemon} />
+            <Pager
+              totalItems={data.total.agg.count}
+              currentPage={store.pageNumber}
+              changePage={store.updatePageNumber}
+            />
+          </>
+        )}
       </div>
     </Wrapper>
   )
