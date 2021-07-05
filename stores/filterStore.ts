@@ -1,16 +1,13 @@
 import create from 'zustand'
 import { PokedexFilterStore } from '@/types/Stores'
-import { AutoCompleteOption } from '@/types/FilterTypes'
-import { OptionsType } from 'react-select'
+import { FiltersObject } from '@/types/FilterTypes'
+import { DEFAULT_FILTERS_OBJECT } from '@/utils/constants'
 
 const usePokedexFilterStore = create<PokedexFilterStore>(
   (set): PokedexFilterStore => ({
     search: '',
     pageNumber: 1,
-    types: [],
-    heights: [],
-    weights: [],
-    ability: null,
+    filters: DEFAULT_FILTERS_OBJECT,
     updateSearch: (search: string) =>
       set(state => ({
         ...state,
@@ -22,26 +19,11 @@ const usePokedexFilterStore = create<PokedexFilterStore>(
         ...state,
         pageNumber,
       })),
-    updateTypes: (types: OptionsType<AutoCompleteOption>) =>
+    updateFilters: (filters: FiltersObject) =>
       set(state => ({
         ...state,
-        types,
+        filters,
         pageNumber: 1,
-      })),
-    updateHeights: (heights: Array<string>) =>
-      set(state => ({
-        ...state,
-        heights,
-      })),
-    updateWeights: (weights: Array<string>) =>
-      set(state => ({
-        ...state,
-        weights,
-      })),
-    updateAbility: (ability: AutoCompleteOption | null) =>
-      set(state => ({
-        ...state,
-        ability,
       })),
   })
 )

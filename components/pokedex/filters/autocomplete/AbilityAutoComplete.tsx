@@ -30,6 +30,7 @@ const AbilityAutoCompleteProps: React.FC<AbilityAutoCompleteProps> = ({
         closeMenuOnSelect={false}
         isClearable
         name={name}
+        value={defaultOption}
         defaultValue={defaultOption}
         options={options}
         styles={{

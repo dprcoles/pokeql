@@ -6,7 +6,7 @@ import { AutoCompleteOption } from '@/types/FilterTypes'
 
 interface AbilityFilterProps {
   ability: AutoCompleteOption | null
-  updateAbility: (ability: AutoCompleteOption | null) => void
+  updateAbility: (type: string, value: AutoCompleteOption | null) => void
 }
 
 const AbilityFilter: React.FC<AbilityFilterProps> = ({ ability, updateAbility }) => {
@@ -25,7 +25,7 @@ const AbilityFilter: React.FC<AbilityFilterProps> = ({ ability, updateAbility })
               }))
         }
         defaultOption={ability}
-        updateOption={updateAbility}
+        updateOption={option => updateAbility('ability', option)}
       />
     </div>
   )
