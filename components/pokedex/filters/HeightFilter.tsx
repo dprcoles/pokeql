@@ -3,7 +3,7 @@ import { HEIGHT_OPTIONS } from '@/utils/constants'
 
 interface HeightFilterProps {
   heights: Array<string>
-  updateHeights: (heights: Array<string>) => void
+  updateHeights: (type: string, value: Array<string>) => void
 }
 
 const HeightFilter: React.FC<HeightFilterProps> = ({ heights, updateHeights }) => {
@@ -16,7 +16,7 @@ const HeightFilter: React.FC<HeightFilterProps> = ({ heights, updateHeights }) =
       selectedHeights.push(height)
     }
 
-    updateHeights(selectedHeights)
+    updateHeights('heights', selectedHeights)
   }
 
   const getClasses = (height: string) => {

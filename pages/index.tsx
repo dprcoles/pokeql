@@ -10,6 +10,7 @@ import Pager from '@/components/Pager'
 import usePokedexFilterStore from '@/stores/filterStore'
 import { getHeightFilter, getWeightFilter } from '@/utils/helpers'
 import NoResults from '@/components/NoResults'
+import { SearchFilter } from '@/components/pokedex/filters'
 
 const Pokedex: React.FC = () => {
   const store = usePokedexFilterStore(state => state)
@@ -17,10 +18,10 @@ const Pokedex: React.FC = () => {
   const getTypesVariable = () => {
     const defaultValue = DEFAULT_TYPES_COMPARISON
 
-    if (store.types.length > 0) {
+    if (store.filters.types.length > 0) {
       const newValue = {
         _lte: DEFAULT_TYPES_COMPARISON._lte,
-        _in: store.types.map(x => x.value),
+        _in: store.filters.types.map(x => x.value),
       }
 
       return newValue
@@ -30,8 +31,8 @@ const Pokedex: React.FC = () => {
   }
 
   const getAbilityFilter = () => {
-    if (!store.ability?.value) return {}
-    return { _eq: store.ability?.value }
+    if (!store.filters.ability?.value) return {}
+    return { _eq: store.filters.ability?.value }
   }
 
   const { data, loading, error } = useQuery(GET_POKEMON_LIST, {
@@ -40,8 +41,8 @@ const Pokedex: React.FC = () => {
       offset: (store.pageNumber - 1) * PAGE_SIZE,
       search: `%${store.search}%`,
       types: getTypesVariable(),
-      height: getHeightFilter(store.heights),
-      weight: getWeightFilter(store.weights),
+      height: getHeightFilter(store.filters.heights),
+      weight: getWeightFilter(store.filters.weights),
       ability: getAbilityFilter(),
     },
   })
@@ -49,7 +50,11 @@ const Pokedex: React.FC = () => {
   return (
     <Wrapper>
       <div className="md:p-16">
-        <PokedexFilterMenu store={store} />
+        <div className="p-4">
+          <p>Search</p>
+          <SearchFilter initialSearch={store.search} updateSearch={store.updateSearch} />
+        </div>
+        <PokedexFilterMenu store={store} loading={loading} />
         {loading ? (
           <Loading />
         ) : error || !data ? (

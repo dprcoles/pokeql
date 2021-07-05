@@ -7,7 +7,7 @@ import { OptionsType } from 'react-select'
 
 interface TypesFilterProps {
   initialTypes: OptionsType<AutoCompleteOption>
-  updateTypes: (types: OptionsType<AutoCompleteOption>) => void
+  updateTypes: (type: string, types: OptionsType<AutoCompleteOption>) => void
 }
 
 const TypesFilter: React.FC<TypesFilterProps> = ({ initialTypes, updateTypes }) => {
@@ -19,7 +19,7 @@ const TypesFilter: React.FC<TypesFilterProps> = ({ initialTypes, updateTypes }) 
         name="Types"
         options={loading ? [] : data.types}
         defaultOptions={initialTypes}
-        updateOptions={updateTypes}
+        updateOptions={options => updateTypes('types', options)}
       />
     </div>
   )

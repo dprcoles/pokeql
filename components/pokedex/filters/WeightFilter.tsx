@@ -3,7 +3,7 @@ import { WEIGHT_OPTIONS } from '@/utils/constants'
 
 interface WeightFilterProps {
   weights: Array<string>
-  updateWeights: (weights: Array<string>) => void
+  updateWeights: (type: string, value: Array<string>) => void
 }
 
 const WeightFilter: React.FC<WeightFilterProps> = ({ weights, updateWeights }) => {
@@ -16,7 +16,7 @@ const WeightFilter: React.FC<WeightFilterProps> = ({ weights, updateWeights }) =
       selectedWeights.push(height)
     }
 
-    updateWeights(selectedWeights)
+    updateWeights('weights', selectedWeights)
   }
 
   const getClasses = (height: string) => {

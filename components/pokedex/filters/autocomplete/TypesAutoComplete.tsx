@@ -31,6 +31,7 @@ const TypesAutoCompleteProps: React.FC<TypesAutoCompleteProps> = ({
         closeMenuOnSelect={false}
         name={name}
         defaultValue={defaultOptions}
+        value={defaultOptions}
         options={options}
         styles={{
           control,
