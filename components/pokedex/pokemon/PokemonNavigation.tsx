@@ -1,9 +1,9 @@
-import React from 'react'
-import Link from 'next/link'
-import { PokemonNavigationData } from '@/types/PokemonData'
-import { getPaddedPokemonId, resolvePokemonName } from '@/utils/helpers'
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
-import { CgPokemon } from 'react-icons/cg'
+import React from "react"
+import Link from "next/link"
+import { PokemonNavigationData } from "@/types/PokemonData"
+import { getPaddedPokemonId, resolvePokemonName } from "@/utils/helpers"
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
+import { CgPokemon } from "react-icons/cg"
 
 interface PokemonNavigationProps {
   next: PokemonNavigationData
@@ -30,7 +30,7 @@ const PokemonNavigation: React.FC<PokemonNavigationProps> = ({ next, prev }) => 
               <p className="font-bold w-full text-left">
                 #{prevId}
                 <span className="hidden md:inline capitalize ">
-                  {'  '}
+                  {"  "}
                   {prevName}
                 </span>
               </p>
@@ -56,7 +56,7 @@ const PokemonNavigation: React.FC<PokemonNavigationProps> = ({ next, prev }) => 
               <p className="font-bold w-full text-right">
                 <span className="hidden md:inline capitalize ">
                   {nextName}
-                  {'  '}
+                  {"  "}
                 </span>
                 #{nextId}
               </p>

@@ -1,6 +1,6 @@
-import { HeightFilter, WeightFilter } from '@/types/FilterTypes'
-import { TypeColorData } from '@/types/PokemonData'
-import { HEIGHT_OPTIONS, HEIGHT_RANGES, WEIGHT_OPTIONS, WEIGHT_RANGES } from './constants'
+import { HeightFilter, WeightFilter } from "@/types/FilterTypes"
+import { TypeColorData } from "@/types/PokemonData"
+import { HEIGHT_OPTIONS, HEIGHT_RANGES, WEIGHT_OPTIONS, WEIGHT_RANGES } from "./constants"
 
 export function getPokemonImage(id: number): string {
   const paddedId = getPaddedPokemonId(id)
@@ -8,11 +8,11 @@ export function getPokemonImage(id: number): string {
 }
 
 export function resolvePokemonName(name: string): string {
-  return name.replace('-hero', '').replace('-single-strike', '')
+  return name.replace("-hero", "").replace("-single-strike", "")
 }
 
 export function getPaddedPokemonId(id: number): string {
-  return String(id).padStart(3, '0')
+  return String(id).padStart(3, "0")
 }
 
 export function getFullSizePokemonImage(id: number): string {
@@ -22,100 +22,100 @@ export function getFullSizePokemonImage(id: number): string {
 
 export function getTypeColors(type: string): TypeColorData {
   switch (type) {
-    case 'normal':
+    case "normal":
       return {
-        fill: '#A8A878',
-        border: '#6D6D4E',
+        fill: "#A8A878",
+        border: "#6D6D4E",
       }
-    case 'fighting':
+    case "fighting":
       return {
-        fill: '#C03028',
-        border: '#7D1F1A',
+        fill: "#C03028",
+        border: "#7D1F1A",
       }
-    case 'flying':
+    case "flying":
       return {
-        fill: '#A890F0',
-        border: '#6D5E9C',
+        fill: "#A890F0",
+        border: "#6D5E9C",
       }
-    case 'poison':
+    case "poison":
       return {
-        fill: '#A040A0',
-        border: '#682A68',
+        fill: "#A040A0",
+        border: "#682A68",
       }
-    case 'ground':
+    case "ground":
       return {
-        fill: '#E0C068',
-        border: '#927D44',
+        fill: "#E0C068",
+        border: "#927D44",
       }
-    case 'rock':
+    case "rock":
       return {
-        fill: '#B8A038',
-        border: '#786824',
+        fill: "#B8A038",
+        border: "#786824",
       }
-    case 'bug':
+    case "bug":
       return {
-        fill: '#A8B820',
-        border: '#6D7815',
+        fill: "#A8B820",
+        border: "#6D7815",
       }
-    case 'ghost':
+    case "ghost":
       return {
-        fill: '#705898',
-        border: '#493963',
+        fill: "#705898",
+        border: "#493963",
       }
-    case 'steel':
+    case "steel":
       return {
-        fill: '#B8B8D0',
-        border: '#787887',
+        fill: "#B8B8D0",
+        border: "#787887",
       }
-    case 'fire':
+    case "fire":
       return {
-        fill: '#F08030',
-        border: '#9C531F',
+        fill: "#F08030",
+        border: "#9C531F",
       }
-    case 'water':
+    case "water":
       return {
-        fill: '#6890F0',
-        border: '#445E9C',
+        fill: "#6890F0",
+        border: "#445E9C",
       }
-    case 'grass':
+    case "grass":
       return {
-        fill: '#78C850',
-        border: '#4E8234',
+        fill: "#78C850",
+        border: "#4E8234",
       }
-    case 'electric':
+    case "electric":
       return {
-        fill: '#F8D030',
-        border: '#A1871F',
+        fill: "#F8D030",
+        border: "#A1871F",
       }
-    case 'psychic':
+    case "psychic":
       return {
-        fill: '#F85888',
-        border: '#A13959',
+        fill: "#F85888",
+        border: "#A13959",
       }
-    case 'ice':
+    case "ice":
       return {
-        fill: '#98D8D8',
-        border: '#638D8D',
+        fill: "#98D8D8",
+        border: "#638D8D",
       }
-    case 'dragon':
+    case "dragon":
       return {
-        fill: '#7038F8',
-        border: '#4924A1',
+        fill: "#7038F8",
+        border: "#4924A1",
       }
-    case 'dark':
+    case "dark":
       return {
-        fill: '#705848',
-        border: '#49392F',
+        fill: "#705848",
+        border: "#49392F",
       }
-    case 'fairy':
+    case "fairy":
       return {
-        fill: '#EE99AC',
-        border: '#9B6470',
+        fill: "#EE99AC",
+        border: "#9B6470",
       }
     default:
       return {
-        fill: '',
-        border: '',
+        fill: "",
+        border: "",
       }
   }
 }

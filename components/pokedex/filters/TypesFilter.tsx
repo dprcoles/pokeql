@@ -1,9 +1,9 @@
-import React from 'react'
-import { useQuery } from '@apollo/client'
-import { GET_POKEMON_TYPES } from 'utils/queries'
-import { TypesAutoComplete } from './autocomplete'
-import { AutoCompleteOption } from '@/types/FilterTypes'
-import { OptionsType } from 'react-select'
+import React from "react"
+import { useQuery } from "@apollo/client"
+import { GET_POKEMON_TYPES } from "utils/queries"
+import { TypesAutoComplete } from "./autocomplete"
+import { AutoCompleteOption } from "@/types/FilterTypes"
+import { OptionsType } from "react-select"
 
 interface TypesFilterProps {
   initialTypes: OptionsType<AutoCompleteOption>
@@ -19,7 +19,7 @@ const TypesFilter: React.FC<TypesFilterProps> = ({ initialTypes, updateTypes }) 
         name="Types"
         options={loading ? [] : data.types}
         defaultOptions={initialTypes}
-        updateOptions={options => updateTypes('types', options)}
+        updateOptions={options => updateTypes("types", options)}
       />
     </div>
   )

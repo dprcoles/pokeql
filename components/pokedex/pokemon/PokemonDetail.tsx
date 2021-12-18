@@ -1,5 +1,5 @@
-import React from 'react'
-import { PokemonAbilitiesData } from '@/types/PokemonData'
+import React from "react"
+import { PokemonAbilitiesData } from "@/types/PokemonData"
 
 interface PokemonDetailProps {
   abilities: Array<PokemonAbilitiesData>
@@ -14,7 +14,7 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ abilities }) => {
           {abilities.map(({ ability }) => (
             <div key={ability.id} className={`[ ABILITY__${ability.name.toUpperCase()} ]`}>
               <p>
-                <span className="capitalize font-bold">{ability.name}</span> -{' '}
+                <span className="capitalize font-bold">{ability.name}</span> -{" "}
                 {ability.effect[0]?.description}
               </p>
             </div>

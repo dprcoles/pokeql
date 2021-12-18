@@ -1,5 +1,5 @@
-import React from 'react'
-import { BiSad } from 'react-icons/bi'
+import React from "react"
+import { BiSad } from "react-icons/bi"
 
 const NoResults: React.FC = () => (
   <div>

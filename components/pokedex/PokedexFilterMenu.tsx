@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { PokedexFilterStore } from '@/types/Stores'
-import { HeightFilter, TypesFilter, WeightFilter } from './filters'
-import AbilityFilter from './filters/AbilityFilter'
-import { DEFAULT_FILTERS_OBJECT } from '@/utils/constants'
+import React, { useState } from "react"
+import { PokedexFilterStore } from "@/types/Stores"
+import { HeightFilter, TypesFilter, WeightFilter } from "./filters"
+import AbilityFilter from "./filters/AbilityFilter"
+import { DEFAULT_FILTERS_OBJECT } from "@/utils/constants"
 
 interface PokedexFilterMenuProps {
   store: PokedexFilterStore

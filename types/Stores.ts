@@ -1,4 +1,4 @@
-import { FiltersObject } from './FilterTypes'
+import { FiltersObject } from "./FilterTypes"
 
 export type PokedexFilterStore = {
   search: string

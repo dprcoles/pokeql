@@ -1,6 +1,6 @@
-import React from 'react'
-import Select, { OptionsType } from 'react-select'
-import { AutoCompleteOption } from '@/types/FilterTypes'
+import React from "react"
+import Select, { OptionsType } from "react-select"
+import { AutoCompleteOption } from "@/types/FilterTypes"
 import {
   abilityOption,
   control,
@@ -9,7 +9,7 @@ import {
   placeholder,
   singleValue,
   valueContainer,
-} from './styles'
+} from "./styles"
 
 interface AbilityAutoCompleteProps {
   name: string
@@ -46,9 +46,9 @@ const AbilityAutoCompleteProps: React.FC<AbilityAutoCompleteProps> = ({
           ...theme,
           colors: {
             ...theme.colors,
-            primary: '#DB2777',
-            primary25: '#FDE6F3',
-            neutral10: '#E5E7EB',
+            primary: "#DB2777",
+            primary25: "#FDE6F3",
+            neutral10: "#E5E7EB",
           },
         })}
         onChange={selected => updateOption(selected)}

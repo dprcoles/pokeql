@@ -1,5 +1,5 @@
-import React from 'react'
-import { HEIGHT_OPTIONS } from '@/utils/constants'
+import React from "react"
+import { HEIGHT_OPTIONS } from "@/utils/constants"
 
 interface HeightFilterProps {
   heights: Array<string>
@@ -16,14 +16,14 @@ const HeightFilter: React.FC<HeightFilterProps> = ({ heights, updateHeights }) =
       selectedHeights.push(height)
     }
 
-    updateHeights('heights', selectedHeights)
+    updateHeights("heights", selectedHeights)
   }
 
   const getClasses = (height: string) => {
     if (heights.includes(height)) {
-      return 'bg-page-alt-color text-white border-white'
+      return "bg-page-alt-color text-white border-white"
     } else {
-      return 'bg-white hover:bg-page-alt-color hover:text-white hover:border-white'
+      return "bg-white hover:bg-page-alt-color hover:text-white hover:border-white"
     }
   }
 

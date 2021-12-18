@@ -1,5 +1,5 @@
-import React from 'react'
-import { WEIGHT_OPTIONS } from '@/utils/constants'
+import React from "react"
+import { WEIGHT_OPTIONS } from "@/utils/constants"
 
 interface WeightFilterProps {
   weights: Array<string>
@@ -16,14 +16,14 @@ const WeightFilter: React.FC<WeightFilterProps> = ({ weights, updateWeights }) =
       selectedWeights.push(height)
     }
 
-    updateWeights('weights', selectedWeights)
+    updateWeights("weights", selectedWeights)
   }
 
   const getClasses = (height: string) => {
     if (weights.includes(height)) {
-      return 'bg-page-alt-color text-white border-white'
+      return "bg-page-alt-color text-white border-white"
     } else {
-      return 'bg-white hover:bg-page-alt-color hover:text-white hover:border-white'
+      return "bg-white hover:bg-page-alt-color hover:text-white hover:border-white"
     }
   }
 

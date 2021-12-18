@@ -1,6 +1,6 @@
-import React from 'react'
-import { PAGE_SIZE } from '@/utils/constants'
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import React from "react"
+import { PAGE_SIZE } from "@/utils/constants"
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 
 interface PagerProps {
   totalItems: number

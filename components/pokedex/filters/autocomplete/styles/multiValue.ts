@@ -1,7 +1,7 @@
-import { CSSProperties } from 'react'
-import { OptionProps } from 'react-select'
-import { getTypeColors } from '@/utils/helpers'
-import { AutoCompleteOption } from '@/types/FilterTypes'
+import { CSSProperties } from "react"
+import { OptionProps } from "react-select"
+import { getTypeColors } from "@/utils/helpers"
+import { AutoCompleteOption } from "@/types/FilterTypes"
 
 export const multiValue: any = (
   styles: CSSProperties,
@@ -12,6 +12,6 @@ export const multiValue: any = (
     ...styles,
     border: `0.1rem solid ${border}`,
     backgroundColor: fill,
-    borderRadius: '0.375rem',
+    borderRadius: "0.375rem",
   }
 }

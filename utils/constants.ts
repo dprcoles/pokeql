@@ -12,15 +12,15 @@ export const DEFAULT_FILTERS_OBJECT = {
 }
 
 export const HEIGHT_OPTIONS = {
-  short: 'short',
-  medium: 'medium',
-  tall: 'tall',
+  short: "short",
+  medium: "medium",
+  tall: "tall",
 }
 
 export const WEIGHT_OPTIONS = {
-  light: 'light',
-  medium: 'medium',
-  heavy: 'heavy',
+  light: "light",
+  medium: "medium",
+  heavy: "heavy",
 }
 
 export const HEIGHT_RANGES = {

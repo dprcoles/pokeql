@@ -1,13 +1,13 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { ParsedUrlQuery } from 'querystring'
-import { GET_POKEMON_DETAIL } from '@/utils/queries'
-import { PokemonCard } from '@/components/pokedex/pokemon'
-import Wrapper from '@/components/Wrapper'
-import { API_LANGUAGE_ID, MAX_POKEMON_ID, MIN_POKEMON_ID } from '@/utils/constants'
-import { useQuery } from '@apollo/client'
-import Loading from '@/components/Loading'
-import ErrorMessage from '@/components/ErrorMessage'
+import React from "react"
+import { GetServerSideProps } from "next"
+import { ParsedUrlQuery } from "querystring"
+import { GET_POKEMON_DETAIL } from "@/utils/queries"
+import { PokemonCard } from "@/components/pokedex/pokemon"
+import Wrapper from "@/components/Wrapper"
+import { API_LANGUAGE_ID, MAX_POKEMON_ID, MIN_POKEMON_ID } from "@/utils/constants"
+import { useQuery } from "@apollo/client"
+import Loading from "@/components/Loading"
+import ErrorMessage from "@/components/ErrorMessage"
 
 interface PokemonProps {
   id: number

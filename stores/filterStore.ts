@@ -1,11 +1,11 @@
-import create from 'zustand'
-import { PokedexFilterStore } from '@/types/Stores'
-import { FiltersObject } from '@/types/FilterTypes'
-import { DEFAULT_FILTERS_OBJECT } from '@/utils/constants'
+import create from "zustand"
+import { PokedexFilterStore } from "@/types/Stores"
+import { FiltersObject } from "@/types/FilterTypes"
+import { DEFAULT_FILTERS_OBJECT } from "@/utils/constants"
 
 const usePokedexFilterStore = create<PokedexFilterStore>(
   (set): PokedexFilterStore => ({
-    search: '',
+    search: "",
     pageNumber: 1,
     filters: DEFAULT_FILTERS_OBJECT,
     updateSearch: (search: string) =>

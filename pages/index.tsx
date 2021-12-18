@@ -1,16 +1,16 @@
-import React from 'react'
-import { useQuery } from '@apollo/client'
-import ErrorMessage from '@/components/ErrorMessage'
-import Loading from '@/components/Loading'
-import Wrapper from '@/components/Wrapper'
-import { PokedexList, PokedexFilterMenu } from '@/components/pokedex'
-import { GET_POKEMON_LIST } from 'utils/queries'
-import { DEFAULT_TYPES_COMPARISON, MAX_POKEMON_ID, PAGE_SIZE } from '@/utils/constants'
-import Pager from '@/components/Pager'
-import usePokedexFilterStore from '@/stores/filterStore'
-import { getHeightFilter, getWeightFilter } from '@/utils/helpers'
-import NoResults from '@/components/NoResults'
-import { SearchFilter } from '@/components/pokedex/filters'
+import React from "react"
+import { useQuery } from "@apollo/client"
+import ErrorMessage from "@/components/ErrorMessage"
+import Loading from "@/components/Loading"
+import Wrapper from "@/components/Wrapper"
+import { PokedexList, PokedexFilterMenu } from "@/components/pokedex"
+import { GET_POKEMON_LIST } from "utils/queries"
+import { DEFAULT_TYPES_COMPARISON, MAX_POKEMON_ID, PAGE_SIZE } from "@/utils/constants"
+import Pager from "@/components/Pager"
+import usePokedexFilterStore from "@/stores/filterStore"
+import { getHeightFilter, getWeightFilter } from "@/utils/helpers"
+import NoResults from "@/components/NoResults"
+import { SearchFilter } from "@/components/pokedex/filters"
 
 const Pokedex: React.FC = () => {
   const store = usePokedexFilterStore(state => state)
