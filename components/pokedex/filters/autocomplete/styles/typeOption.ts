@@ -1,8 +1,8 @@
-import { CSSProperties } from 'react'
-import { OptionProps } from 'react-select'
-import chroma from 'chroma-js'
-import { AutoCompleteOption } from '@/types/FilterTypes'
-import { getTypeColors } from '@/utils/helpers'
+import { CSSProperties } from "react"
+import { OptionProps } from "react-select"
+import chroma from "chroma-js"
+import { AutoCompleteOption } from "@/types/FilterTypes"
+import { getTypeColors } from "@/utils/helpers"
 
 export const typeOption: any = (
   styles: CSSProperties,
@@ -20,16 +20,16 @@ export const typeOption: any = (
       ? color.alpha(0.1).css()
       : null,
     color: props.isDisabled
-      ? '#ccc'
+      ? "#ccc"
       : props.isSelected
-      ? chroma.contrast(color, 'white') > 2
-        ? 'white'
-        : 'black'
+      ? chroma.contrast(color, "white") > 2
+        ? "white"
+        : "black"
       : fill,
-    cursor: props.isDisabled ? 'not-allowed' : 'default',
-    textTransform: 'capitalize',
-    fontWeight: 'bold',
-    ':active': {
+    cursor: props.isDisabled ? "not-allowed" : "default",
+    textTransform: "capitalize",
+    fontWeight: "bold",
+    ":active": {
       ...styles,
       backgroundColor: !props.isDisabled && (props.isSelected ? fill : color.alpha(0.3).css()),
     },

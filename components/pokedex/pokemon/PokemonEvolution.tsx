@@ -1,8 +1,8 @@
-import React from 'react'
-import { PokemonEvolutionData } from '@/types/PokemonData'
-import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from '@/utils/helpers'
-import Link from 'next/link'
-import { FaLongArrowAltRight } from 'react-icons/fa'
+import React from "react"
+import { PokemonEvolutionData } from "@/types/PokemonData"
+import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from "@/utils/helpers"
+import Link from "next/link"
+import { FaLongArrowAltRight } from "react-icons/fa"
 
 interface PokemonEvolutionProps {
   chain: Array<PokemonEvolutionData>
@@ -32,7 +32,7 @@ const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({ chain }) => {
               />
             </div>
             <div className="capitalize text-lg">
-              {resolvePokemonName(name)}{' '}
+              {resolvePokemonName(name)}{" "}
               <span className="text-gray-300">#{getPaddedPokemonId(id)}</span>
             </div>
           </a>

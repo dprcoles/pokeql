@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react'
-import { InputProps } from 'react-select'
-import dot from './dot'
+import { CSSProperties } from "react"
+import { InputProps } from "react-select"
+import dot from "./dot"
 
 export const input: any = (styles: CSSProperties, props: InputProps) => ({
   ...styles,

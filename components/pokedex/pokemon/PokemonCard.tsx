@@ -1,11 +1,11 @@
-import React from 'react'
-import { PokemonCardData, PokemonEvolutionsData, PokemonNavigationData } from '@/types/PokemonData'
-import { getPaddedPokemonId, getFullSizePokemonImage, resolvePokemonName } from '@/utils/helpers'
-import PokemonType from './PokemonType'
-import PokemonDetail from './PokemonDetail'
-import PokemonStats from './PokemonStats'
-import PokemonNavigation from './PokemonNavigation'
-import PokemonEvolution from './PokemonEvolution'
+import React from "react"
+import { PokemonCardData, PokemonEvolutionsData, PokemonNavigationData } from "@/types/PokemonData"
+import { getPaddedPokemonId, getFullSizePokemonImage, resolvePokemonName } from "@/utils/helpers"
+import PokemonType from "./PokemonType"
+import PokemonDetail from "./PokemonDetail"
+import PokemonStats from "./PokemonStats"
+import PokemonNavigation from "./PokemonNavigation"
+import PokemonEvolution from "./PokemonEvolution"
 
 interface PokemonCardProps {
   data: PokemonCardData

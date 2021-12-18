@@ -1,7 +1,7 @@
-import React from 'react'
-import { PokemonStatData } from '@/types/PokemonData'
-import { getTypeColors } from '@/utils/helpers'
-import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, Tooltip } from 'recharts'
+import React from "react"
+import { PokemonStatData } from "@/types/PokemonData"
+import { getTypeColors } from "@/utils/helpers"
+import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, Tooltip } from "recharts"
 
 interface PokemonStatsProps {
   stats: Array<PokemonStatData>
@@ -12,19 +12,19 @@ interface PokemonStatsProps {
 function getStatNameById(statId: number): string {
   switch (statId) {
     case 1:
-      return 'HP'
+      return "HP"
     case 2:
-      return 'Atk'
+      return "Atk"
     case 3:
-      return 'Def'
+      return "Def"
     case 4:
-      return 'Sp. Atk'
+      return "Sp. Atk"
     case 5:
-      return 'Sp. Def'
+      return "Sp. Def"
     case 6:
-      return 'Speed'
+      return "Speed"
     default:
-      return '?'
+      return "?"
   }
 }
 
@@ -68,12 +68,12 @@ const PokemonStats: React.FC<PokemonStatsProps> = ({ stats, name, type }) => {
                 key={stat_id}
                 className={`[ STAT__${getStatNameById(stat_id)
                   .toUpperCase()
-                  .replace('.', '_')
-                  .replace(' ', '')} ][ rounded-md m-4 px-2 py-2 text-lg ]`}
+                  .replace(".", "_")
+                  .replace(" ", "")} ][ rounded-md m-4 px-2 py-2 text-lg ]`}
               >
                 {getStatNameById(stat_id)}
                 <span
-                  className={`float-right bg-white px-2 rounded-md ${effort > 0 && 'font-bold'}`}
+                  className={`float-right bg-white px-2 rounded-md ${effort > 0 && "font-bold"}`}
                 >
                   {effort}
                 </span>

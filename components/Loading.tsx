@@ -1,5 +1,5 @@
-import React from 'react'
-import Spinner from './Spinner'
+import React from "react"
+import Spinner from "./Spinner"
 
 const Loading: React.FC = () => (
   <div className="text-lg text-center">

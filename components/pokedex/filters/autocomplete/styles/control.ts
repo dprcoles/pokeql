@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react'
-import { ControlProps } from 'react-select'
-import { AutoCompleteOption } from '@/types/FilterTypes'
+import { CSSProperties } from "react"
+import { ControlProps } from "react-select"
+import { AutoCompleteOption } from "@/types/FilterTypes"
 
 export const control: any = (
   styles: CSSProperties,
@@ -8,6 +8,6 @@ export const control: any = (
 ) => ({
   ...styles,
   border: `2px solid ${props.theme.colors.neutral10}`,
-  backgroundColor: 'white',
-  borderRadius: '0.375rem',
+  backgroundColor: "white",
+  borderRadius: "0.375rem",
 })

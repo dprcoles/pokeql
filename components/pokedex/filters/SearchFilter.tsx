@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { MdSearch } from 'react-icons/md'
+import React, { useState } from "react"
+import { MdSearch } from "react-icons/md"
 
 interface SearchFilterProps {
   initialSearch: string
@@ -14,7 +14,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ initialSearch, updateSearch
 
     setSearch(value)
 
-    value === '' && updateSearch(value)
+    value === "" && updateSearch(value)
   }
 
   return (

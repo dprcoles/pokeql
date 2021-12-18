@@ -1,4 +1,4 @@
-import { OptionsType } from 'react-select'
+import { OptionsType } from "react-select"
 
 export type FiltersObject = {
   types: OptionsType<AutoCompleteOption>

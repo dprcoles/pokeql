@@ -1,8 +1,8 @@
-import React from 'react'
-import Link from 'next/link'
-import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from '@/utils/helpers'
-import { PokedexCardData } from '@/types/PokemonData'
-import { PokemonType } from './pokemon'
+import React from "react"
+import Link from "next/link"
+import { getPaddedPokemonId, getPokemonImage, resolvePokemonName } from "@/utils/helpers"
+import { PokedexCardData } from "@/types/PokemonData"
+import { PokemonType } from "./pokemon"
 
 interface PokedexCardProps {
   data: PokedexCardData

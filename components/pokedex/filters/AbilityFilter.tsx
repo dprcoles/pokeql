@@ -1,8 +1,8 @@
-import React from 'react'
-import { useQuery } from '@apollo/client'
-import { GET_POKEMON_ABILITIES } from 'utils/queries'
-import { AbilityAutoComplete } from './autocomplete'
-import { AutoCompleteOption } from '@/types/FilterTypes'
+import React from "react"
+import { useQuery } from "@apollo/client"
+import { GET_POKEMON_ABILITIES } from "utils/queries"
+import { AbilityAutoComplete } from "./autocomplete"
+import { AutoCompleteOption } from "@/types/FilterTypes"
 
 interface AbilityFilterProps {
   ability: AutoCompleteOption | null
@@ -21,11 +21,11 @@ const AbilityFilter: React.FC<AbilityFilterProps> = ({ ability, updateAbility })
             ? []
             : data.abilities.map((ability: AutoCompleteOption) => ({
                 value: ability.value,
-                label: ability.label.replace(/-/g, ' '),
+                label: ability.label.replace(/-/g, " "),
               }))
         }
         defaultOption={ability}
-        updateOption={option => updateAbility('ability', option)}
+        updateOption={option => updateAbility("ability", option)}
       />
     </div>
   )

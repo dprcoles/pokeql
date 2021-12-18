@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Footer from './Footer'
+import Head from "next/head"
+import Footer from "./Footer"
 
 interface WrapperProps {
   children?: React.ReactNode
@@ -7,14 +7,14 @@ interface WrapperProps {
 
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {
   const meta = {
-    title: 'PokeQL',
+    title: "PokeQL",
     description: `Pokedex for all Pokemon and Pokemon games, powered by PokeAPI's GraphQL API`,
-    type: 'website',
-    siteName: 'PokeQL',
-    twitterHandle: '@_danielcoles',
-    url: 'https://pokedex.page',
-    image: 'https://pokedex.page/logo.png',
-    imageAlt: 'Logo for PokeQL',
+    type: "website",
+    siteName: "PokeQL",
+    twitterHandle: "@_danielcoles",
+    url: "https://pokedex.page",
+    image: "https://pokedex.page/logo.png",
+    imageAlt: "Logo for PokeQL",
   }
 
   return (

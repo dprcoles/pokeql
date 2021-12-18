@@ -1,6 +1,6 @@
-import React from 'react'
-import PokedexCard from './PokedexCard'
-import { PokedexCardData } from '@/types/PokemonData'
+import React from "react"
+import PokedexCard from "./PokedexCard"
+import { PokedexCardData } from "@/types/PokemonData"
 
 interface PokemonListProps {
   data: Array<PokedexCardData>
