@@ -9,7 +9,9 @@ interface PokemonTypeProps {
 const PokemonType: React.FC<PokemonTypeProps> = ({ type, size }) => {
   const { name } = type
   return (
-    <div className={`[ POKEMON__TYPE ][ Type__${name.toUpperCase()} ][ rounded-md mx-auto ]`}>
+    <div
+      className={`[ text-white ][ bg-${name.toLowerCase()}-bg border border-${name.toLowerCase()}-border ][ rounded-md mx-auto ]`}
+    >
       <p
         className={`capitalize ${
           size === "small" ? "text-sm" : "text-2xl"

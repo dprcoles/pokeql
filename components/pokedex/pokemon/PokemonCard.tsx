@@ -53,7 +53,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ data, evolution, next, prev }
           </div>
         </div>
       </div>
-      <div className={`[ Border__${primaryType} ]`}>
+      <div className={`border-t-2 border-${primaryType.toLowerCase()}-bg`}>
         <PokemonDetail abilities={abilities} />
       </div>
     </div>

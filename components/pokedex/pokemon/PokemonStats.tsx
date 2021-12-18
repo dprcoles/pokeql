@@ -66,10 +66,10 @@ const PokemonStats: React.FC<PokemonStatsProps> = ({ stats, name, type }) => {
             {stats.map(({ stat_id, effort }) => (
               <div
                 key={stat_id}
-                className={`[ STAT__${getStatNameById(stat_id)
-                  .toUpperCase()
+                className={`[ bg-${getStatNameById(stat_id)
+                  .toLowerCase()
                   .replace(".", "_")
-                  .replace(" ", "")} ][ rounded-md m-4 px-2 py-2 text-lg ]`}
+                  .replace(" ", "")}-stat-bg ][ rounded-md m-4 px-2 py-2 text-lg ]`}
               >
                 {getStatNameById(stat_id)}
                 <span

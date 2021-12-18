@@ -1,8 +1,13 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 module.exports = {
-  content: ["./components/**/*.{ts,tsx}", "./pages/**/*.{ts,tsx}"],
+  content: ["./components/**/*.{ts,tsx}", "./pages/**/*.{ts,tsx}", "safelist.txt"],
   darkMode: "media",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         normal: {
           bg: "#A8A878",

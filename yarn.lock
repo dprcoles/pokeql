@@ -221,11 +221,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/montserrat@^4.4.5":
-  version "4.4.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.4.5.tgz#f97ebea605f4a2d6b9b23a19bc9bf8fc6f4c79d5"
-  integrity sha512-1F3cR9OIp4Qi1AJHFg/SeFeUWLYemMgI3ldetx0mrlHoWeMuK+p2YentYIIZVkV9ogXOIE2QEw7VnHlGBPo7iw==
-
 "@graphql-typed-document-node/core@^3.0.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
