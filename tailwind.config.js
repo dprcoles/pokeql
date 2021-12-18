@@ -1,50 +1,81 @@
-const purgeEnabled = process.env.NODE_ENV === "production"
-
 module.exports = {
-  purge: {
-    enabled: purgeEnabled,
-    content: ["./components/**/*.{ts,tsx}", "./pages/**/*.{ts,tsx}"],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: ["./components/**/*.{ts,tsx}", "./pages/**/*.{ts,tsx}"],
+  darkMode: "media",
   theme: {
     extend: {
       colors: {
-        "normal-type-bg": "#A8A878",
-        "normal-type-border": "#6D6D4E",
-        "fighting-type-bg": "#C03028",
-        "fighting-type-border": "#7D1F1A",
-        "flying-type-bg": "#A890F0",
-        "flying-type-border": "#6D5E9C",
-        "poison-type-bg": "#A040A0",
-        "poison-type-border": "#682A68",
-        "ground-type-bg": "#E0C068",
-        "ground-type-border": "#927D44",
-        "rock-type-bg": "#B8A038",
-        "rock-type-border": "#786824",
-        "bug-type-bg": "#A8B820",
-        "bug-type-border": "#6D7815",
-        "ghost-type-bg": "#705898",
-        "ghost-type-border": "#493963",
-        "steel-type-bg": "#B8B8D0",
-        "steel-type-border": "#787887",
-        "fire-type-bg": "#F08030",
-        "fire-type-border": "#9C531F",
-        "water-type-bg": "#6890F0",
-        "water-type-border": "#445E9C",
-        "grass-type-bg": "#78C850",
-        "grass-type-border": "#4E8234",
-        "electric-type-bg": "#F8D030",
-        "electric-type-border": "#A1871F",
-        "psychic-type-bg": "#F85888",
-        "psychic-type-border": "#A13959",
-        "ice-type-bg": "#98D8D8",
-        "ice-type-border": "#638D8D",
-        "dragon-type-bg": "#7038F8",
-        "dragon-type-border": "#4924A1",
-        "dark-type-bg": "#705848",
-        "dark-type-border": "#49392F",
-        "fairy-type-bg": "#EE99AC",
-        "fairy-type-border": "#9B6470",
+        normal: {
+          bg: "#A8A878",
+          border: "#6D6D4E",
+        },
+        fighting: {
+          bg: "#C03028",
+          border: "#7D1F1A",
+        },
+        flying: {
+          bg: "#A890F0",
+          border: "#6D5E9C",
+        },
+        poison: {
+          bg: "#A040A0",
+          border: "#682A68",
+        },
+        ground: {
+          bg: "#E0C068",
+          border: "#927D44",
+        },
+        rock: {
+          bg: "#B8A038",
+          border: "#786824",
+        },
+        bug: {
+          bg: "#A8B820",
+          border: "#6D7815",
+        },
+        ghost: {
+          bg: "#705898",
+          border: "#493963",
+        },
+        steel: {
+          bg: "#B8B8D0",
+          border: "#787887",
+        },
+        fire: {
+          bg: "#F08030",
+          border: "#9C531F",
+        },
+        water: {
+          bg: "#6890F0",
+          border: "#445E9C",
+        },
+        grass: {
+          bg: "#78C850",
+          border: "#4E8234",
+        },
+        electric: {
+          bg: "#F8D030",
+          border: "#A1871F",
+        },
+        psychic: {
+          bg: "#F85888",
+          border: "#A13959",
+        },
+        ice: {
+          bg: "#98D8D8",
+          border: "#638D8D",
+        },
+        dragon: {
+          bg: "#7038F8",
+          border: "#4924A1",
+        },
+        dark: {
+          bg: "#705848",
+          border: "#49392F",
+        },
+        fairy: {
+          bg: "#EE99AC",
+          border: "#9B6470",
+        },
         "hp-stat-bg": "#FF5959",
         "atk-stat-bg": "#F5AC78",
         "def-stat-bg": "#FAE078",
