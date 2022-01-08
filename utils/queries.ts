@@ -114,8 +114,8 @@ export const GET_POKEMON_ABILITIES = gql`
 `
 
 export const GET_POKEMON_SLUGS = gql`
-  query GetPokemonSlugs {
-    pokemon: pokemon_v2_pokemon {
+  query GetPokemonSlugs($maxPokemonId: Int!) {
+    pokemon: pokemon_v2_pokemon(where: { id: { _lte: $maxPokemonId } }) {
       id
     }
   }

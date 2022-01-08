@@ -43,7 +43,12 @@ const Pokemon: React.FC<PokemonProps> = ({ loading, data, error }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const {
     data: { pokemon },
-  } = await client.query({ query: GET_POKEMON_SLUGS })
+  } = await client.query({
+    query: GET_POKEMON_SLUGS,
+    variables: {
+      maxPokemonId: MAX_POKEMON_ID,
+    },
+  })
 
   const paths = pokemon.map((slug: PokemonSlug) => {
     const pokemon = String(slug.id)
