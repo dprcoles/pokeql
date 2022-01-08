@@ -64,6 +64,10 @@ export type PokemonEvolutionData = {
   name: string
 }
 
+export type PokemonSlug = {
+  id: string
+}
+
 export type TypeColorData = {
   fill: string
   border: string

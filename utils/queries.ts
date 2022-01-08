@@ -112,3 +112,11 @@ export const GET_POKEMON_ABILITIES = gql`
     }
   }
 `
+
+export const GET_POKEMON_SLUGS = gql`
+  query GetPokemonSlugs {
+    pokemon: pokemon_v2_pokemon {
+      id
+    }
+  }
+`
