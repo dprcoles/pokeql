@@ -1,11 +1,13 @@
 import Head from "next/head"
+import { useRouter } from "next/router"
 import Footer from "./Footer"
 
 interface WrapperProps {
   children?: React.ReactNode
+  page: string
 }
 
-const Wrapper: React.FC<WrapperProps> = ({ children }) => {
+const Wrapper: React.FC<WrapperProps> = ({ children, page }) => {
   const meta = {
     title: "PokeQL",
     description: `Pokedex for all Pokemon and Pokemon games, powered by PokeAPI's GraphQL API`,
@@ -17,11 +19,17 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
     imageAlt: "Logo for PokeQL",
   }
 
+  const router = useRouter()
+
   return (
     <div>
       <Head>
-        <title>{meta.title}</title>
+        <title>
+          {page} | {meta.title}
+        </title>
         <meta name="description" content={meta.description} />
+        <link rel="canonical" href={`${meta.url}${router.asPath}`} />
+        <meta property="og:url" content={`${meta.url}${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content={meta.siteName} />
         <meta property="og:title" content={meta.title} />

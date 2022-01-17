@@ -48,7 +48,7 @@ const Pokedex: React.FC = () => {
   })
 
   return (
-    <Wrapper>
+    <Wrapper page="Home">
       <div className="md:p-16">
         <div className="p-4">
           <p>Search</p>

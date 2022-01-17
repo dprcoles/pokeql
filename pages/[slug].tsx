@@ -8,6 +8,7 @@ import { API_LANGUAGE_ID, MAX_POKEMON_ID, MIN_POKEMON_ID } from "@/utils/constan
 import { useQuery } from "@apollo/client"
 import Loading from "@/components/Loading"
 import ErrorMessage from "@/components/ErrorMessage"
+import { capitalize, getPaddedPokemonId, resolvePokemonName } from "@/utils/helpers"
 
 interface PokemonProps {
   id: number
@@ -29,8 +30,11 @@ const Pokemon: React.FC<PokemonProps> = ({ id, nextId, prevId }) => {
     },
   })
 
+  const pageTitle =
+    data && `${getPaddedPokemonId(id)} - ${capitalize(resolvePokemonName(data.pokemon.name))}`
+
   return (
-    <Wrapper>
+    <Wrapper page={pageTitle}>
       {loading ? (
         <Loading />
       ) : error || !data ? (
